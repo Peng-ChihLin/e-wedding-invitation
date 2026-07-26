@@ -31,7 +31,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Great+Vibes&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Great+Vibes&family=Inter:wght@300..800&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -50,6 +50,9 @@
             --accent-ink: #1A1A1A;
             --container-max: 100%;
             --page-pad: 1.25rem;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang TC',
+                         'Microsoft JhengHei', 'Noto Sans TC', system-ui, sans-serif;
+            --font-serif-zh: 'Noto Serif TC', 'Songti TC', 'STSong', serif;
         }
 
         * { box-sizing: border-box; }
@@ -62,7 +65,7 @@
                 radial-gradient(ellipse at 80% 100%, #E8E4DE 0%, transparent 45%),
                 #D8D5D0;
             color: var(--text-dark);
-            font-family: 'Noto Serif TC', serif;
+            font-family: var(--font-sans);
             font-weight: 400;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -86,7 +89,7 @@
         .font-eng { font-family: 'Cormorant Garamond', serif; }
         .font-cursive { font-family: 'Great Vibes', cursive; }
         .font-zh-display {
-            font-family: 'Noto Serif TC', serif;
+            font-family: var(--font-sans);
             font-weight: 500;
             letter-spacing: 0.28em;
         }
@@ -142,30 +145,45 @@
             paint-order: stroke fill;
             text-shadow: 0 1px 8px rgba(0,0,0,0.45);
         }
-        .hero-names {
-            display: flex;
+        .hero-identity {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+            column-gap: clamp(0.55rem, 2.5vw, 1.1rem);
+            row-gap: 0.7rem;
             align-items: center;
-            justify-content: center;
-            gap: clamp(0.55rem, 2.5vw, 1.1rem);
-            font-family: 'Noto Serif TC', serif;
+            justify-items: center;
+            width: 100%;
+            max-width: 22rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-names,
+        .hero-eng {
+            display: contents;
+        }
+        .hero-names .name {
+            display: block;
+            font-family: var(--font-serif-zh);
             font-size: clamp(2.35rem, 9.5vw, 3.6rem);
-            font-weight: 700;
+            font-weight: 600;
             color: var(--hero-ink-deep);
             line-height: 1.15;
+            letter-spacing: 0.32em;
+            padding-left: 0.32em;
             text-shadow:
                 0 1px 2px rgba(0,0,0,0.35),
                 0 4px 18px rgba(0,0,0,0.4);
+            grid-row: 1;
         }
-        .hero-names .name {
-            display: inline-block;
-            letter-spacing: 0.32em;
-            padding-left: 0.32em;
-        }
+        .hero-names .name:first-child { grid-column: 1; }
+        .hero-names .name:last-child { grid-column: 3; }
         .hero-heart {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            grid-column: 2;
+            grid-row: 1;
             width: clamp(1.15rem, 4vw, 1.6rem);
             height: clamp(1.15rem, 4vw, 1.6rem);
             color: var(--hero-heart);
@@ -173,6 +191,29 @@
             text-indent: 0;
             letter-spacing: 0;
             animation: heartSoft 3.6s ease-in-out infinite;
+        }
+        .hero-eng .eng-name {
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.05rem, 3.6vw, 1.3rem);
+            letter-spacing: 0.28em;
+            padding-left: 0.28em;
+            color: var(--hero-ink-soft);
+            font-weight: 700;
+            font-style: italic;
+            -webkit-text-stroke: 0.3px currentColor;
+            paint-order: stroke fill;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+            grid-row: 2;
+            text-align: center;
+        }
+        .hero-eng .eng-name:first-child { grid-column: 1; }
+        .hero-eng .eng-name:last-child { grid-column: 3; }
+        .hero-eng .eng-spacer {
+            grid-column: 2;
+            grid-row: 2;
+            width: clamp(1.15rem, 4vw, 1.6rem);
+            visibility: hidden;
         }
         .hero-heart svg {
             width: 100%;
@@ -204,7 +245,7 @@
         }
         .hero-date .weekday {
             display: inline-block;
-            font-family: 'Noto Serif TC', serif;
+            font-family: var(--font-sans);
             font-size: 0.78em;
             font-weight: 500;
             letter-spacing: 0.1em;
@@ -225,24 +266,6 @@
             letter-spacing: 0.12em;
             padding: 0 0.1em;
         }
-        .hero-eng {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.05rem, 3.6vw, 1.3rem);
-            letter-spacing: 0.36em;
-            color: var(--hero-ink-soft);
-            font-weight: 700;
-            font-style: italic;
-            -webkit-text-stroke: 0.3px currentColor;
-            paint-order: stroke fill;
-            text-shadow: 0 1px 8px rgba(0,0,0,0.4);
-        }
-        .hero-eng .dot {
-            display: inline-block;
-            margin: 0 0.15em;
-            color: var(--hero-heart);
-            font-style: normal;
-            opacity: 0.95;
-        }
 
         .name-overlay {
             background: rgba(255,255,255,0.9);
@@ -259,7 +282,7 @@
             gap: 0.15rem;
         }
         .name-overlay .name-line {
-            font-family: 'Noto Serif TC', serif;
+            font-family: var(--font-sans);
             font-size: clamp(1.65rem, 5vw, 2.1rem);
             font-weight: 600;
             color: var(--title-red);
@@ -497,7 +520,7 @@
         .invite-card {
             background: #FDF8F2;
             color: #4A4A4A;
-            font-family: 'Noto Sans TC', 'Noto Serif TC', sans-serif;
+            font-family: var(--font-sans);
         }
         .invite-card__photos-wrap {
             overflow: hidden;
@@ -692,6 +715,14 @@
             color: var(--text-dark);
             padding-left: 0.16em;
         }
+        .contact-person .eng {
+            margin: 0.28rem 0 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(12px, 3.2vw, 13px);
+            letter-spacing: 0.18em;
+            color: var(--text-gray);
+            font-weight: 600;
+        }
         .contact-line {
             display: inline-flex;
             align-items: center;
@@ -763,7 +794,7 @@
             font-weight: 500;
         }
         .calendar-day-header {
-            font-family: 'Noto Serif TC', serif;
+            font-family: var(--font-sans);
             font-size: 12px;
             color: var(--title-red);
             font-weight: 600;
@@ -872,12 +903,6 @@
             color: var(--text-dark);
             text-align: center;
         }
-        .couple-name {
-            font-weight: 600;
-            font-size: clamp(14px, 3.5vw, 15px);
-            letter-spacing: 0.28em;
-            color: var(--text-dark);
-        }
         .couple-duo {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -906,9 +931,18 @@
             height: auto;
             display: block;
         }
-        .couple-meta {
+        .couple-names-bar {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: start;
+            column-gap: clamp(0.55rem, 2.5vw, 1rem);
             margin-top: 1.15rem;
             width: 100%;
+        }
+        .couple-meta {
+            width: 100%;
+            text-align: center;
         }
         .couple-role {
             font-family: 'Cormorant Garamond', serif;
@@ -919,6 +953,16 @@
             margin-bottom: 0.55rem;
             font-weight: 700;
         }
+        .couple-name {
+            font-family: var(--font-serif-zh);
+            font-size: clamp(1.05rem, 3.8vw, 1.25rem);
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            padding-left: 0.2em;
+            color: var(--text-dark);
+            line-height: 1.3;
+            margin: 0;
+        }
         .couple-eng {
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(12px, 3vw, 13px);
@@ -927,6 +971,20 @@
             font-style: normal;
             font-weight: 600;
             margin-top: 0.4rem;
+        }
+        .couple-infinity {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            align-self: center;
+            margin-top: 0.85rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.35rem, 4.2vw, 1.7rem);
+            line-height: 1;
+            color: var(--cursive-gold);
+            font-weight: 500;
+            opacity: 0.92;
+            user-select: none;
         }
         .venue-map {
             background: #F5F4EE;
@@ -1159,6 +1217,11 @@
         .gallery-shot--lift {
             max-width: 100%;
         }
+        /* 新增直式合影（草皮後） */
+        .gallery-shot--portrait {
+            max-width: 460px;
+            margin: 0 auto;
+        }
         /* 海邊直式收尾 */
         .gallery-shot--shore {
             max-width: 400px;
@@ -1193,6 +1256,9 @@
             .gallery-shot--studio {
                 max-width: 480px;
             }
+            .gallery-shot--portrait {
+                max-width: 480px;
+            }
             .gallery-shot--shore {
                 max-width: 420px;
             }
@@ -1216,11 +1282,12 @@
             .hero-photo {
                 max-height: min(82vh, 860px);
             }
-            .hero-names {
-                font-size: clamp(3rem, 4.2vw, 3.85rem);
-                gap: 1.15rem;
+            .hero-identity {
+                max-width: 26rem;
+                column-gap: 1.15rem;
             }
             .hero-names .name {
+                font-size: clamp(3rem, 4.2vw, 3.85rem);
                 letter-spacing: 0.36em;
                 padding-left: 0.36em;
             }
@@ -1231,15 +1298,19 @@
                 font-size: clamp(1.2rem, 1.6vw, 1.5rem);
                 letter-spacing: 0.36em;
             }
-            .hero-eng {
+            .hero-eng .eng-name {
                 font-size: clamp(1.1rem, 1.4vw, 1.35rem);
-                letter-spacing: 0.42em;
+                letter-spacing: 0.32em;
+                padding-left: 0.32em;
             }
             .gallery-grid {
                 max-width: 720px;
                 gap: 1.6rem;
             }
             .gallery-shot--studio {
+                max-width: 500px;
+            }
+            .gallery-shot--portrait {
                 max-width: 500px;
             }
             .gallery-shot--shore {
@@ -1399,26 +1470,30 @@
 
             <div class="absolute inset-x-0 bottom-0 hero-scrim pt-28 pb-8 px-6 sm:px-10 text-center">
                 <p class="hero-eyebrow fade-up-in">The Wedding of</p>
-                <h1 class="hero-names mt-3 fade-up-in" style="animation-delay:0.2s;">
-                    <span class="name">致霖</span>
-                    <span class="hero-heart" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="heroHeartGrad" x1="0%" y1="0%" x2="40%" y2="100%">
-                                    <stop offset="0%" stop-color="#C97A7A"/>
-                                    <stop offset="55%" stop-color="#A85858"/>
-                                    <stop offset="100%" stop-color="#8F4545"/>
-                                </linearGradient>
-                            </defs>
-                            <path class="heart-fill" d="M12 21s-6.7-4.35-9.33-8.1C.7 9.9 1.35 6.6 4.05 5.25c1.7-.85 3.75-.4 5.05 1.05L12 9.2l2.9-2.9c1.3-1.45 3.35-1.9 5.05-1.05 2.7 1.35 3.35 4.65 1.38 7.65C18.7 16.65 12 21 12 21z"/>
-                            <path class="heart-edge" d="M12 21s-6.7-4.35-9.33-8.1C.7 9.9 1.35 6.6 4.05 5.25c1.7-.85 3.75-.4 5.05 1.05L12 9.2l2.9-2.9c1.3-1.45 3.35-1.9 5.05-1.05 2.7 1.35 3.35 4.65 1.38 7.65C18.7 16.65 12 21 12 21z"/>
-                        </svg>
-                    </span>
-                    <span class="name">品蓉</span>
-                </h1>
-                <p class="hero-eng mt-5 fade-up-in" style="animation-delay:0.4s;">
-                    Oscar<span class="dot">·</span>Betty
-                </p>
+                <div class="hero-identity mt-3 fade-up-in" style="animation-delay:0.2s;">
+                    <h1 class="hero-names">
+                        <span class="name">致霖</span>
+                        <span class="hero-heart" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="heroHeartGrad" x1="0%" y1="0%" x2="40%" y2="100%">
+                                        <stop offset="0%" stop-color="#C97A7A"/>
+                                        <stop offset="55%" stop-color="#A85858"/>
+                                        <stop offset="100%" stop-color="#8F4545"/>
+                                    </linearGradient>
+                                </defs>
+                                <path class="heart-fill" d="M12 21s-6.7-4.35-9.33-8.1C.7 9.9 1.35 6.6 4.05 5.25c1.7-.85 3.75-.4 5.05 1.05L12 9.2l2.9-2.9c1.3-1.45 3.35-1.9 5.05-1.05 2.7 1.35 3.35 4.65 1.38 7.65C18.7 16.65 12 21 12 21z"/>
+                                <path class="heart-edge" d="M12 21s-6.7-4.35-9.33-8.1C.7 9.9 1.35 6.6 4.05 5.25c1.7-.85 3.75-.4 5.05 1.05L12 9.2l2.9-2.9c1.3-1.45 3.35-1.9 5.05-1.05 2.7 1.35 3.35 4.65 1.38 7.65C18.7 16.65 12 21 12 21z"/>
+                            </svg>
+                        </span>
+                        <span class="name">品蓉</span>
+                    </h1>
+                    <p class="hero-eng">
+                        <span class="eng-name">Oscar</span>
+                        <span class="eng-spacer" aria-hidden="true"></span>
+                        <span class="eng-name">Betty</span>
+                    </p>
+                </div>
                 <div class="divider-ornament mt-4 opacity-90"></div>
                 <p class="hero-date mt-4 fade-up-in" style="animation-delay:0.55s;">
                     2026 · 10 · 03<span class="weekday"><span class="paren">(</span><span class="day">六</span><span class="paren">)</span></span>
@@ -1449,7 +1524,7 @@
             <div class="content-narrow prose-soft reveal delay-100">
                 <p>從同事到朋友，再成為彼此最安心的依靠</p>
                 <p>我們把日常裡的陪伴，慢慢走成一生的約定</p>
-                <p class="text-[11px] mt-6 tracking-[0.24em]" style="color: var(--text-gray); font-weight:500;">—— 願此後每一天，都與彼此攜手同行</p>
+                <p class="text-[11px] mt-6 tracking-[0.24em]" style="color: var(--text-gray); font-weight:500;">— 願此後每一天，都與彼此攜手同行 —</p>
             </div>
         </section>
 
@@ -1469,11 +1544,6 @@
                             decoding="async"
                         >
                     </div>
-                    <div class="couple-meta">
-                        <p class="couple-role">Groom</p>
-                        <p class="couple-name">彭致霖</p>
-                        <p class="couple-eng">Oscar</p>
-                    </div>
                 </article>
 
                 <article class="couple-card">
@@ -1488,12 +1558,21 @@
                             decoding="async"
                         >
                     </div>
+                </article>
+
+                <div class="couple-names-bar">
+                    <div class="couple-meta">
+                        <p class="couple-role">Groom</p>
+                        <p class="couple-name">彭致霖</p>
+                        <p class="couple-eng">Oscar</p>
+                    </div>
+                    <span class="couple-infinity" aria-hidden="true">∞</span>
                     <div class="couple-meta">
                         <p class="couple-role">Bride</p>
                         <p class="couple-name">馮品蓉</p>
                         <p class="couple-eng">Betty</p>
                     </div>
-                </article>
+                </div>
             </div>
         </section>
 
@@ -1521,6 +1600,28 @@
                     >
                 </div>
                 <p class="gallery-caption">Forever love</p>
+                <div class="gallery-shot gallery-shot--portrait">
+                    <img
+                        src="./assets/R6II2473.jpg"
+                        alt="跪地比心的甜蜜合影"
+                        class="film-look"
+                        width="1066"
+                        height="1600"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                </div>
+                <div class="gallery-shot gallery-shot--portrait">
+                    <img
+                        src="./assets/R6II2074.jpg"
+                        alt="階梯上的優雅合影"
+                        class="film-look"
+                        width="1066"
+                        height="1600"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                </div>
                 <div class="gallery-shot gallery-shot--studio">
                     <img
                         src="./assets/R6II2128.jpg"
@@ -1579,7 +1680,6 @@
             </div>
 
             <div class="text-center reveal">
-                <p class="font-eng text-[16px] tracking-[0.28em] text-[var(--text-dark)] mb-1" style="font-weight:700;">Saturday · October 3 · 2026</p>
                 <p class="time-highlight">午宴 11:30 入席</p>
             </div>
 
@@ -1589,7 +1689,8 @@
                 <div class="contact-pair">
                     <div class="contact-person">
                         <p class="role">Groom</p>
-                        <p class="name">彭致霖</p>
+                        <p class="name">致霖</p>
+                        <p class="eng">Oscar</p>
                         <a class="contact-line" href="https://line.me/ti/p/vXgSSCba1l" target="_blank" rel="noopener noreferrer" aria-label="開啟 LINE，加入新郎彭致霖好友">
                             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.8 9.4c0-3.6-3.6-6.5-8-6.5S3.8 5.8 3.8 9.4c0 3.2 2.8 5.9 6.7 6.4.26.05.61.17.7.38.08.2.05.51.03.71l-.11.7c-.03.23-.17.9.79.49s5.24-3.1 7.15-5.3c1.3-1.4 1.74-2.8 1.74-4.32z"/></svg>
                             LINE
@@ -1597,7 +1698,8 @@
                     </div>
                     <div class="contact-person">
                         <p class="role">Bride</p>
-                        <p class="name">馮品蓉</p>
+                        <p class="name">品蓉</p>
+                        <p class="eng">Betty</p>
                         <a class="contact-line" href="https://line.me/ti/p/kdeBlaVR8R" target="_blank" rel="noopener noreferrer" aria-label="開啟 LINE，加入新娘馮品蓉好友">
                             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.8 9.4c0-3.6-3.6-6.5-8-6.5S3.8 5.8 3.8 9.4c0 3.2 2.8 5.9 6.7 6.4.26.05.61.17.7.38.08.2.05.51.03.71l-.11.7c-.03.23-.17.9.79.49s5.24-3.1 7.15-5.3c1.3-1.4 1.74-2.8 1.74-4.32z"/></svg>
                             LINE
