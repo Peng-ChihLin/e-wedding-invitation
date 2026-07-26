@@ -668,7 +668,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 1.05rem 0.75rem 1.15rem;
+            padding: 1.05rem 0.5rem 1.15rem;
             min-width: 0;
         }
         .contact-person .role {
@@ -682,29 +682,32 @@
         }
         .contact-person .name {
             margin: 0.4rem 0 0;
-            font-size: 15px;
-            letter-spacing: 0.2em;
+            font-size: clamp(13px, 3.8vw, 15px);
+            letter-spacing: 0.16em;
             font-weight: 600;
             color: var(--text-dark);
-            padding-left: 0.2em;
+            padding-left: 0.16em;
         }
         .contact-line {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.4rem;
+            gap: 0.35rem;
             margin-top: 0.75rem;
-            min-width: 6.5rem;
-            padding: 0.48rem 0.9rem;
+            min-width: 0;
+            width: 100%;
+            max-width: 7.2rem;
+            padding: 0.48rem 0.7rem;
             border: 1px solid rgba(6, 199, 85, 0.28);
             border-radius: 999px;
             background: rgba(6, 199, 85, 0.07);
             color: #06A84A;
             text-decoration: none;
             font-size: 11px;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.08em;
             font-weight: 700;
             transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+            box-sizing: border-box;
         }
         .contact-line:hover {
             background: rgba(6, 199, 85, 0.14);
@@ -731,12 +734,6 @@
             text-decoration: none;
             font-weight: 700;
             border-bottom: 1px solid rgba(172,134,96,0.4);
-        }
-
-        @media (max-width: 380px) {
-            .contact-pair {
-                grid-template-columns: 1fr;
-            }
         }
 
         .time-highlight {
@@ -1704,10 +1701,10 @@
                         <p class="transport-disclaimer">以上交通資訊僅供參考，實際班次與行車時間請依當日狀況為準。</p>
 
                         <div class="venue-nav">
-                            <a class="nav-btn nav-btn-primary" href="https://www.google.com/maps/place/%E6%96%B0%E7%AB%B9%E8%B1%90%E9%82%91%E5%96%9C%E4%BE%86%E7%99%BB%E5%A4%A7%E9%A3%AF%E5%BA%97/@24.8155513,121.0254838,17z" target="_blank" rel="noopener noreferrer">
+                            <a class="nav-btn nav-btn-primary" href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E7%AB%B9%E8%B1%90%E9%82%91%E5%96%9C%E4%BE%86%E7%99%BB%E5%A4%A7%E9%A3%AF%E5%BA%97+24.820565,121.028201" target="_blank" rel="noopener noreferrer">
                                 Google Maps 導航
                             </a>
-                            <a class="nav-btn nav-btn-ghost" href="https://maps.apple.com/?q=%E6%96%B0%E7%AB%B9%E8%B1%90%E9%82%91%E5%96%9C%E4%BE%86%E7%99%BB%E5%A4%A7%E9%A3%AF%E5%BA%97&ll=24.8155513,121.0254838" target="_blank" rel="noopener noreferrer">
+                            <a class="nav-btn nav-btn-ghost" href="https://maps.apple.com/?q=%E6%96%B0%E7%AB%B9%E5%96%9C%E4%BE%86%E7%99%BB%E5%A4%A7%E9%A3%AF%E5%BA%97&ll=24.820565,121.028201&address=%E6%96%B0%E7%AB%B9%E7%B8%A3%E7%AB%B9%E5%8C%97%E5%B8%82%E5%85%89%E6%98%8E%E5%85%AD%E8%B7%AF%E6%9D%B1%E4%B8%80%E6%AE%B5265%E8%99%9F" target="_blank" rel="noopener noreferrer">
                                 Apple Maps 導航
                             </a>
                         </div>
