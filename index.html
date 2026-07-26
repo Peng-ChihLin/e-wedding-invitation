@@ -3,22 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>彭致霖 & 馮品蓉 | Wedding Invitation</title>
+    <title>致霖 &amp; 品蓉 | Wedding Invitation</title>
+    <meta name="description" content="誠摯邀請您參與彭致霖與馮品蓉的婚禮。2026年10月3日（六）11:30，新竹豐邑喜來登大飯店 3F 宴會廳 3 廳。">
+    <meta name="theme-color" content="#AC8660">
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="./assets/invitation-card.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:site_name" content="致霖 &amp; 品蓉 Wedding">
+    <meta property="og:title" content="致霖 ♥ 品蓉｜聯姻婚宴邀請">
+    <meta property="og:description" content="2026.10.03（六）11:30 · 新竹豐邑喜來登大飯店 · 誠摯邀請親友們蒞臨見證">
+    <meta property="og:url" content="https://peng-chihlin.github.io/e-wedding-invitation/">
+    <meta property="og:image" content="https://peng-chihlin.github.io/e-wedding-invitation/assets/invitation-card.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="致霖與品蓉聯姻婚宴邀請函">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="致霖 ♥ 品蓉｜聯姻婚宴邀請">
+    <meta name="twitter:description" content="2026.10.03（六）11:30 · 新竹豐邑喜來登大飯店">
+    <meta name="twitter:image" content="https://peng-chihlin.github.io/e-wedding-invitation/assets/invitation-card.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Noto+Serif+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Great+Vibes&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --bg-main: #FAFAF8;
             --bg-soft: #F3F1EE;
-            --text-dark: #2C2C2C;
-            --text-gray: #7A7A7A;
-            --title-red: #8B3A3A;
-            --cursive-gold: #C4A46A;
+            --text-dark: #3D342C;
+            --text-gray: #5C534A;
+            --text-muted: #7A7168;
+            --title-red: #AC8660;
+            --cursive-gold: #AC8660;
+            --hero-ink: #F0E6D8;
+            --hero-ink-deep: #FFF8F0;
+            --hero-ink-soft: #E8D9C6;
+            --hero-heart: #A85858;
             --line-soft: #E5DFD6;
             --accent-ink: #1A1A1A;
             --container-max: 100%;
@@ -36,7 +59,10 @@
                 #D8D5D0;
             color: var(--text-dark);
             font-family: 'Noto Serif TC', serif;
+            font-weight: 400;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
             display: flex;
             justify-content: center;
             margin: 0;
@@ -55,6 +81,11 @@
 
         .font-eng { font-family: 'Cormorant Garamond', serif; }
         .font-cursive { font-family: 'Great Vibes', cursive; }
+        .font-zh-display {
+            font-family: 'Noto Serif TC', serif;
+            font-weight: 500;
+            letter-spacing: 0.28em;
+        }
 
         .reveal {
             opacity: 0;
@@ -90,33 +121,153 @@
         .hero-scrim {
             background: linear-gradient(
                 to top,
-                rgba(18, 16, 14, 0.72) 0%,
-                rgba(18, 16, 14, 0.35) 45%,
+                rgba(18, 16, 14, 0.82) 0%,
+                rgba(18, 16, 14, 0.48) 42%,
+                rgba(18, 16, 14, 0.12) 72%,
                 transparent 100%
             );
         }
+        .hero-eyebrow {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(12px, 3.1vw, 15px);
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--hero-ink-soft);
+            font-weight: 700;
+            -webkit-text-stroke: 0.3px currentColor;
+            paint-order: stroke fill;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.45);
+        }
         .hero-names {
-            font-size: clamp(2.8rem, 12vw, 4.2rem);
-            color: #FFFFFF;
-            letter-spacing: 0.02em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(0.55rem, 2.5vw, 1.1rem);
+            font-family: 'Noto Serif TC', serif;
+            font-size: clamp(2.35rem, 9.5vw, 3.6rem);
+            font-weight: 700;
+            color: var(--hero-ink-deep);
+            line-height: 1.15;
             text-shadow:
-                0 2px 4px rgba(0,0,0,0.55),
-                0 8px 28px rgba(0,0,0,0.45),
-                0 0 40px rgba(0,0,0,0.25);
+                0 1px 2px rgba(0,0,0,0.35),
+                0 4px 18px rgba(0,0,0,0.4);
+        }
+        .hero-names .name {
+            display: inline-block;
+            letter-spacing: 0.32em;
+            padding-left: 0.32em;
+        }
+        .hero-heart {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: clamp(1.15rem, 4vw, 1.6rem);
+            height: clamp(1.15rem, 4vw, 1.6rem);
+            color: var(--hero-heart);
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));
+            text-indent: 0;
+            letter-spacing: 0;
+            animation: heartSoft 3.6s ease-in-out infinite;
+        }
+        .hero-heart svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .hero-heart .heart-fill {
+            fill: url(#heroHeartGrad);
+        }
+        .hero-heart .heart-edge {
+            fill: none;
+            stroke: #8F4545;
+            stroke-width: 0.7;
+            stroke-opacity: 0.55;
+        }
+        @keyframes heartSoft {
+            0%, 100% { transform: scale(1); opacity: 0.95; }
+            50% { transform: scale(1.06); opacity: 1; }
+        }
+        .hero-date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.1rem, 4.2vw, 1.45rem);
+            letter-spacing: 0.32em;
+            color: var(--hero-ink);
+            font-weight: 700;
+            -webkit-text-stroke: 0.3px currentColor;
+            paint-order: stroke fill;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+        }
+        .hero-date .weekday {
+            display: inline-block;
+            font-family: 'Noto Serif TC', serif;
+            font-size: 0.78em;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            margin-left: 0.34em;
+            color: var(--hero-ink-soft);
+            -webkit-text-stroke: 0;
+            text-shadow: 0 1px 6px rgba(0,0,0,0.35);
+            vertical-align: 0.05em;
+            opacity: 0.88;
+        }
+        .hero-date .weekday .paren {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            opacity: 0.7;
+            letter-spacing: 0;
+        }
+        .hero-date .weekday .day {
+            letter-spacing: 0.12em;
+            padding: 0 0.1em;
+        }
+        .hero-eng {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.05rem, 3.6vw, 1.3rem);
+            letter-spacing: 0.36em;
+            color: var(--hero-ink-soft);
+            font-weight: 700;
+            font-style: italic;
+            -webkit-text-stroke: 0.3px currentColor;
+            paint-order: stroke fill;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+        }
+        .hero-eng .dot {
+            display: inline-block;
+            margin: 0 0.15em;
+            color: var(--hero-heart);
+            font-style: normal;
+            opacity: 0.95;
         }
 
         .name-overlay {
-            background: rgba(255,255,255,0.88);
-            backdrop-filter: blur(6px);
-            padding: 14px 18px 12px;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(8px);
+            padding: 16px 20px 14px;
             border-radius: 2px;
-            box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 32px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.65);
+        }
+        .name-overlay .name-pair {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.15rem;
         }
         .name-overlay .name-line {
-            font-size: clamp(2.2rem, 6vw, 2.8rem);
+            font-family: 'Noto Serif TC', serif;
+            font-size: clamp(1.65rem, 5vw, 2.1rem);
+            font-weight: 600;
             color: var(--title-red);
-            line-height: 1;
-            text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+            line-height: 1.15;
+            letter-spacing: 0.28em;
+            text-indent: 0.28em;
+        }
+        .name-overlay .name-heart {
+            width: 14px;
+            height: 14px;
+            color: var(--cursive-gold);
+            margin: 0.2rem 0 0.15rem 0.55rem;
         }
 
         .section-pad {
@@ -132,60 +283,472 @@
         }
 
         .floating-action {
-            position: fixed;
-            right: max(16px, calc(50% - (min(100vw, var(--container-max)) / 2) + 16px));
-            z-index: 100;
+            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.2s ease, opacity 0.2s ease;
         }
         .floating-action:active { transform: scale(0.92); }
 
-        .btn-rsvp {
-            bottom: 100px;
-            background: rgba(255,255,255,0.92);
-            backdrop-filter: blur(8px);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            border-radius: 10px;
-            padding: 10px 14px;
+        .fab-dock {
+            position: fixed;
+            right: max(14px, calc(50% - (min(100vw, var(--container-max)) / 2) + 14px));
+            bottom: 22px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .fab-menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            pointer-events: none;
+            transform: translateY(8px);
+            transition: max-height 0.28s ease, opacity 0.22s ease, transform 0.22s ease;
+        }
+        .fab-dock.is-open .fab-menu {
+            max-height: 160px;
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        .fab-toggle {
+            width: 46px;
+            height: 46px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.95);
+            color: var(--text-dark);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.14);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        .fab-toggle:active { transform: scale(0.92); }
+        .fab-toggle svg {
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
+        .fab-toggle .icon-close { display: none; }
+        .fab-dock.is-open .fab-toggle .icon-menu { display: none; }
+        .fab-dock.is-open .fab-toggle .icon-close { display: block; }
+        .fab-dock.is-open .fab-toggle {
+            background: var(--accent-ink);
+            color: #fff;
+        }
+
+        .btn-fab {
+            width: 52px;
+            min-height: 52px;
+            padding: 7px 4px 6px;
+            gap: 3px;
+            background: rgba(255,255,255,0.96);
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+            border-radius: 12px;
             color: var(--text-gray);
-            border: 1px solid rgba(0,0,0,0.04);
+            font: inherit;
             text-decoration: none;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+        .fab-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            color: var(--text-dark);
+        }
+        .fab-icon svg {
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
+        .fab-icon .fab-heart,
+        .fab-icon .fab-pen {
+            stroke: rgba(255,255,255,0.95);
+            stroke-width: 2;
+            paint-order: stroke fill;
+        }
+        .fab-icon .fab-heart {
+            fill: var(--hero-heart);
+        }
+        .fab-icon .fab-pen {
+            fill: var(--title-red);
+        }
+        .fab-label {
+            display: block;
+            font-size: 9px;
+            line-height: 1;
+            letter-spacing: 0.06em;
+            font-weight: 600;
+            color: var(--text-dark);
+            white-space: nowrap;
         }
 
         .btn-music {
-            bottom: 40px;
-            width: 46px; height: 46px;
+            width: 46px;
+            height: 46px;
+            border: none;
             border-radius: 50%;
             background-color: var(--accent-ink);
             color: #FFFFFF;
             box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+            padding: 0;
         }
+        .btn-music svg {
+            width: 18px;
+            height: 18px;
+            display: block;
+        }
+        .btn-music .icon-unmute { display: none; }
+        .btn-music.is-playing .icon-mute { display: none; }
+        .btn-music.is-playing .icon-unmute { display: block; }
         .btn-music.is-playing {
             box-shadow: 0 0 0 3px rgba(196,164,106,0.35), 0 6px 18px rgba(0,0,0,0.22);
         }
 
+        .invite-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            background: rgba(20, 18, 16, 0.72);
+            backdrop-filter: blur(6px);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.28s ease, visibility 0.28s ease;
+        }
+        .invite-modal.is-open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .invite-modal__panel {
+            position: relative;
+            width: min(100%, 420px);
+            max-height: min(92vh, 860px);
+            overflow: auto;
+            border-radius: 4px;
+            background: #FDF8F2;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+            -webkit-overflow-scrolling: touch;
+        }
+        .invite-modal__close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 2;
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.92);
+            color: var(--text-dark);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .invite-modal__close svg {
+            width: 14px;
+            height: 14px;
+            display: block;
+        }
+        body.invite-open {
+            overflow: hidden;
+        }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* HTML 邀請函卡片 */
+        .invite-card {
+            background: #FDF8F2;
+            color: #4A4A4A;
+            font-family: 'Noto Sans TC', 'Noto Serif TC', sans-serif;
+        }
+        .invite-card__photos-wrap {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3 / 1.9;
+            background: #ece8e1;
+        }
+        .invite-card__photos {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+        .invite-card__body {
+            display: grid;
+            grid-template-columns: 1.15fr 0.95fr;
+            gap: 1rem 0.85rem;
+            padding: 1.15rem 1.1rem 1.25rem;
+            align-items: start;
+        }
+        .invite-card__script {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(1.55rem, 6.5vw, 1.9rem);
+            color: #555;
+            line-height: 1.1;
+            margin: 0 0 0.55rem;
+        }
+        .invite-card__names {
+            font-size: clamp(1.15rem, 4.8vw, 1.35rem);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            margin: 0;
+            color: #3d3d3d;
+        }
+        .invite-card__names .heart {
+            color: #E24B4B;
+            margin: 0 0.15em;
+            font-weight: 500;
+        }
+        .invite-card__event {
+            margin: 0.35rem 0 0;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+        }
+        .invite-card__rule {
+            width: 100%;
+            height: 1px;
+            background: #D8D2C8;
+            margin: 0.85rem 0 0.75rem;
+            border: 0;
+        }
+        .invite-card__msg {
+            margin: 0;
+            font-size: 11px;
+            line-height: 1.7;
+            letter-spacing: 0.04em;
+            color: #666;
+            font-weight: 500;
+        }
+        .invite-card__datebox {
+            border: 1px solid #C9C3B8;
+            padding: 0.55rem 0.5rem 0.6rem;
+            text-align: center;
+            margin-left: auto;
+            width: 100%;
+            max-width: 118px;
+        }
+        .invite-card__year {
+            margin: 0;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            font-weight: 600;
+        }
+        .invite-card__md {
+            margin: 0.1rem 0 0.35rem;
+            font-size: 1.45rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            line-height: 1;
+        }
+        .invite-card__time {
+            margin: 0.4rem 0 0;
+            padding-top: 0.4rem;
+            border-top: 1px solid #C9C3B8;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+        }
+        .invite-card__venue {
+            margin: 0.75rem 0 0;
+            text-align: right;
+            font-size: 12px;
+            line-height: 1.65;
+            letter-spacing: 0.06em;
+            font-weight: 600;
+        }
+        .invite-card__addr {
+            margin: 0.7rem 0 0;
+            text-align: right;
+            font-size: 10px;
+            line-height: 1.55;
+            color: #777;
+            letter-spacing: 0.02em;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+            gap: 0.25rem;
+        }
+        .invite-card__addr svg {
+            width: 10px;
+            height: 10px;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+            opacity: 0.7;
+        }
+
         .story-progress-container {
             position: fixed;
-            bottom: 18px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: min(calc(100% - 40px), calc(var(--container-max) - 40px));
-            max-width: calc(100vw - 40px);
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            max-width: none;
             height: 2px;
-            background: rgba(0,0,0,0.08);
-            border-radius: 2px;
-            z-index: 100;
+            background: rgba(0,0,0,0.06);
+            border-radius: 0;
+            z-index: 110;
+            transform: none;
         }
         .story-progress-bar {
             height: 100%;
-            background: var(--accent-ink);
+            background: var(--title-red);
             width: 0%;
-            border-radius: 2px;
+            border-radius: 0;
             transition: width 0.05s linear;
+        }
+
+        .contact-block {
+            margin-top: 1.75rem;
+            padding: 1.35rem 1.15rem 1.25rem;
+            border: 1px solid var(--line-soft);
+            background: rgba(255,255,255,0.72);
+            text-align: center;
+        }
+        .contact-block h4 {
+            margin: 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 12px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--cursive-gold);
+            font-weight: 700;
+        }
+        .contact-block .contact-zh {
+            margin: 0.3rem 0 0;
+            font-size: 11px;
+            letter-spacing: 0.28em;
+            color: var(--text-muted);
+        }
+        .contact-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin-top: 1.15rem;
+            border-top: 1px solid var(--line-soft);
+            border-bottom: 1px solid var(--line-soft);
+        }
+        .contact-person {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.05rem 0.75rem 1.15rem;
+            min-width: 0;
+        }
+        .contact-person .role {
+            margin: 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 11px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+        .contact-person .name {
+            margin: 0.4rem 0 0;
+            font-size: 15px;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+            color: var(--text-dark);
+            padding-left: 0.2em;
+        }
+        .contact-line {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            margin-top: 0.75rem;
+            min-width: 6.5rem;
+            padding: 0.48rem 0.9rem;
+            border: 1px solid rgba(6, 199, 85, 0.28);
+            border-radius: 999px;
+            background: rgba(6, 199, 85, 0.07);
+            color: #06A84A;
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+        }
+        .contact-line:hover {
+            background: rgba(6, 199, 85, 0.14);
+            border-color: rgba(6, 199, 85, 0.45);
+        }
+        .contact-line:active {
+            transform: scale(0.97);
+        }
+        .contact-line svg {
+            width: 13px;
+            height: 13px;
+            display: block;
+            flex-shrink: 0;
+        }
+        .contact-hint {
+            margin: 0.95rem 0 0;
+            font-size: 10.5px;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            line-height: 1.75;
+        }
+        .contact-hint a {
+            color: var(--title-red);
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 1px solid rgba(172,134,96,0.4);
+        }
+
+        @media (max-width: 380px) {
+            .contact-pair {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .time-highlight {
+            display: inline-block;
+            margin-top: 0.85rem;
+            padding: 0.55rem 1.1rem;
+            border: 1px solid rgba(172,134,96,0.45);
+            background: rgba(172,134,96,0.1);
+            color: var(--title-red);
+            font-size: 14px;
+            letter-spacing: 0.22em;
+            font-weight: 700;
         }
 
         .calendar-grid {
@@ -195,12 +758,14 @@
             text-align: center;
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(13px, 3.5vw, 16px);
-            color: var(--text-gray);
+            color: var(--text-dark);
+            font-weight: 500;
         }
         .calendar-day-header {
             font-family: 'Noto Serif TC', serif;
             font-size: 12px;
             color: var(--title-red);
+            font-weight: 600;
             padding-bottom: 10px;
             border-bottom: 1px solid var(--line-soft);
             margin-bottom: 10px;
@@ -236,14 +801,14 @@
         /* 邀請文 */
         .invite-block {
             text-align: center;
-            padding: 3.25rem var(--page-pad) 2.75rem;
+            padding: 3.5rem var(--page-pad) 3rem;
         }
         .invite-text {
-            font-weight: 300;
+            font-weight: 500;
             font-size: clamp(13px, 3.4vw, 15px);
-            line-height: 2.55;
-            letter-spacing: 0.18em;
-            color: #8A8580;
+            line-height: 2.7;
+            letter-spacing: 0.2em;
+            color: var(--text-dark);
         }
         .invite-ornament {
             display: flex;
@@ -276,25 +841,98 @@
         }
         .section-title h2 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.5rem, 4vw, 1.85rem);
-            letter-spacing: 0.18em;
+            font-size: clamp(1.65rem, 4.2vw, 2.05rem);
+            letter-spacing: 0.28em;
             color: var(--title-red);
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
         }
         .section-title p {
-            font-size: 11px;
-            letter-spacing: 0.22em;
+            font-size: 12px;
+            letter-spacing: 0.28em;
             color: var(--text-gray);
-            margin-top: 0.5rem;
+            margin-top: 0.65rem;
+            font-weight: 500;
         }
 
+        .prose-soft {
+            font-weight: 500;
+            font-size: clamp(13px, 3.4vw, 14.5px);
+            line-height: 2.55;
+            letter-spacing: 0.16em;
+            color: var(--text-dark);
+            text-align: center;
+        }
+        .prose-quote {
+            font-weight: 500;
+            font-size: clamp(14px, 3.6vw, 16px);
+            line-height: 2.55;
+            letter-spacing: 0.18em;
+            color: var(--text-dark);
+            text-align: center;
+        }
+        .couple-name {
+            font-weight: 600;
+            font-size: clamp(14px, 3.5vw, 15px);
+            letter-spacing: 0.28em;
+            color: var(--text-dark);
+        }
+        .couple-duo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(0.85rem, 3vw, 1.5rem);
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto;
+            align-items: start;
+        }
+        .couple-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-width: 0;
+        }
+        .couple-card .photo-frame {
+            width: 100%;
+            border-radius: 2px;
+            overflow: hidden;
+            background: #EDEBE8;
+            box-shadow: 0 14px 36px rgba(0,0,0,0.07);
+        }
+        .couple-card .photo-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .couple-meta {
+            margin-top: 1.15rem;
+            width: 100%;
+        }
+        .couple-role {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(10px, 2.6vw, 11px);
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--cursive-gold);
+            margin-bottom: 0.55rem;
+            font-weight: 700;
+        }
+        .couple-eng {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(12px, 3vw, 13px);
+            letter-spacing: 0.22em;
+            color: var(--text-gray);
+            font-style: normal;
+            font-weight: 600;
+            margin-top: 0.4rem;
+        }
         .venue-map {
-            background: #F6F3EE;
+            background: #F5F4EE;
             border: 1px solid var(--line-soft);
             overflow: hidden;
         }
-        .venue-map svg {
+        .venue-map img {
             width: 100%;
             height: auto;
             display: block;
@@ -303,45 +941,30 @@
         .venue-panel {
             background: rgba(255,255,255,0.72);
             border: 1px solid var(--line-soft);
-            padding: 1.5rem 1.35rem;
+            padding: 1.4rem 1.25rem 1.3rem;
             height: 100%;
             display: flex;
             flex-direction: column;
         }
         .venue-panel-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 11px;
-            letter-spacing: 0.28em;
+            font-size: 12px;
+            letter-spacing: 0.3em;
             text-transform: uppercase;
             color: var(--cursive-gold);
-            margin-bottom: 1.25rem;
-            padding-bottom: 0.85rem;
-            border-bottom: 1px solid var(--line-soft);
+            font-weight: 700;
+            margin: 0 0 0.35rem;
+            text-align: center;
         }
-        .venue-cross {
-            margin-bottom: 1.35rem;
-            padding-bottom: 1.25rem;
-            border-bottom: 1px solid var(--line-soft);
-        }
-        .venue-cross h4 {
-            font-size: 13px;
-            letter-spacing: 0.14em;
-            color: var(--text-dark);
-            font-weight: 500;
-            margin: 0;
-        }
-        .venue-cross .eng {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 12px;
-            letter-spacing: 0.06em;
-            color: var(--text-gray);
-            margin-top: 0.35rem;
-        }
-        .venue-cross .note {
+        .venue-panel-sub {
             font-size: 11px;
-            letter-spacing: 0.12em;
-            color: var(--text-gray);
-            margin-top: 0.7rem;
+            letter-spacing: 0.28em;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-align: center;
+            margin: 0 0 1.15rem;
+            padding-bottom: 0.95rem;
+            border-bottom: 1px solid var(--line-soft);
         }
 
         .nav-btn {
@@ -372,42 +995,116 @@
 
         .transport-list {
             flex: 1;
+            display: flex;
+            flex-direction: column;
         }
         .transport-item {
             display: grid;
-            grid-template-columns: 44px 1fr;
-            gap: 14px;
+            grid-template-columns: 42px 1fr;
+            gap: 12px;
             align-items: start;
-            padding: 0.95rem 0;
+            padding: 0.85rem 0;
             border-bottom: 1px solid var(--line-soft);
         }
-        .transport-item:last-child { border-bottom: none; }
+        .transport-item:first-child { padding-top: 0.15rem; }
+        .transport-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0.2rem;
+        }
         .transport-tag {
-            font-size: 10px;
-            letter-spacing: 0.14em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 26px;
+            font-size: 11px;
+            letter-spacing: 0.08em;
             color: var(--title-red);
-            background: transparent;
-            border: 1px solid rgba(139, 58, 58, 0.35);
+            background: rgba(172, 134, 96, 0.08);
+            border: 1px solid rgba(172, 134, 96, 0.38);
             text-align: center;
-            padding: 4px 0;
-            line-height: 1.3;
+            padding: 3px 0;
+            line-height: 1;
+            font-weight: 700;
+        }
+        .transport-body {
+            min-width: 0;
+        }
+        .transport-station {
+            margin-bottom: 0.45rem !important;
+        }
+        .transport-options {
+            display: grid;
+            gap: 0.4rem;
+        }
+        .transport-option {
+            display: grid;
+            grid-template-columns: 18px 1fr;
+            gap: 0.45rem;
+            align-items: start;
+        }
+        .transport-option-num {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            margin-top: 0.15rem;
+            border-radius: 50%;
+            background: rgba(172, 134, 96, 0.12);
+            color: var(--title-red);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 11px;
+            line-height: 1;
+            font-weight: 700;
+        }
+        .transport-option p {
+            font-size: 11.5px;
+            line-height: 1.7;
+            color: var(--text-gray);
         }
         .transport-item p {
             margin: 0;
-            font-size: 12px;
-            line-height: 1.85;
-            letter-spacing: 0.08em;
-            color: var(--text-gray);
+            font-size: 12.5px;
+            line-height: 1.75;
+            letter-spacing: 0.06em;
+            color: var(--text-dark);
             text-align: left;
+            font-weight: 500;
         }
         .transport-item strong {
             color: var(--text-dark);
-            font-weight: 500;
+            font-weight: 700;
+        }
+        .transport-item .transport-note {
+            display: block;
+            width: fit-content;
+            max-width: 100%;
+            margin-top: 0.55rem;
+            padding: 0.45rem 0.7rem;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            line-height: 1.45;
+            font-weight: 700;
+            color: var(--title-red);
+            background: rgba(172, 134, 96, 0.12);
+            border-left: 2px solid var(--title-red);
+        }
+        .transport-disclaimer {
+            margin: 0.8rem 0 0;
+            padding-top: 0.75rem;
+            border-top: 1px dashed var(--line-soft);
+            font-size: 10px;
+            line-height: 1.65;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            text-align: center;
         }
 
         .venue-nav {
             margin-top: auto;
-            padding-top: 1.25rem;
+            padding-top: 1.15rem;
+            display: grid;
+            gap: 0.45rem;
         }
 
         .venue-layout {
@@ -431,10 +1128,50 @@
         }
 
         .gallery-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.1rem;
             width: 100%;
+            padding: 0 var(--page-pad);
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .gallery-shot {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 2px;
+            background: #EDEBE8;
+            box-shadow: 0 14px 36px rgba(0,0,0,0.07);
+        }
+        .gallery-shot img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        /* 工作室直式合影 */
+        .gallery-shot--studio {
+            max-width: 460px;
+            margin: 0 auto;
+        }
+        /* 草地橫式歡慶 */
+        .gallery-shot--lift {
+            max-width: 100%;
+        }
+        /* 海邊直式收尾 */
+        .gallery-shot--shore {
+            max-width: 400px;
+            margin: 0.25rem auto 0;
+            box-shadow: 0 18px 44px rgba(0,0,0,0.09);
+        }
+        .gallery-caption {
+            margin: 0.15rem 0;
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(1.75rem, 5vw, 2.15rem);
+            color: var(--cursive-gold);
+            letter-spacing: 0.04em;
+            text-align: center;
+            line-height: 1.2;
         }
 
         img {
@@ -450,14 +1187,13 @@
             }
             .hero-photo { max-height: min(75vh, 780px); }
             .gallery-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 1rem;
+                gap: 1.35rem;
             }
-            .gallery-grid .gallery-tall {
-                grid-column: 1 / -1;
+            .gallery-shot--studio {
+                max-width: 480px;
+            }
+            .gallery-shot--shore {
                 max-width: 420px;
-                margin: 0 auto;
-                width: 100%;
             }
         }
 
@@ -480,19 +1216,33 @@
                 max-height: min(82vh, 860px);
             }
             .hero-names {
-                font-size: clamp(3.6rem, 5vw, 4.8rem);
+                font-size: clamp(3rem, 4.2vw, 3.85rem);
+                gap: 1.15rem;
+            }
+            .hero-names .name {
+                letter-spacing: 0.36em;
+                padding-left: 0.36em;
+            }
+            .hero-eyebrow {
+                font-size: clamp(13px, 1.3vw, 16px);
+            }
+            .hero-date {
+                font-size: clamp(1.2rem, 1.6vw, 1.5rem);
+                letter-spacing: 0.36em;
+            }
+            .hero-eng {
+                font-size: clamp(1.1rem, 1.4vw, 1.35rem);
+                letter-spacing: 0.42em;
             }
             .gallery-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 1.25rem;
-                padding: 0 var(--page-pad);
+                max-width: 720px;
+                gap: 1.6rem;
             }
-            .gallery-grid .gallery-wide {
-                grid-column: span 1;
+            .gallery-shot--studio {
+                max-width: 500px;
             }
-            .gallery-grid .gallery-tall {
-                grid-column: 1 / -1;
-                max-width: 480px;
+            .gallery-shot--shore {
+                max-width: 440px;
             }
             .venue-layout {
                 grid-template-columns: 1.2fr 0.9fr;
@@ -502,10 +1252,12 @@
             .content-narrow {
                 max-width: 40rem;
             }
-            .portrait-wrap {
-                max-width: 520px;
-                margin-left: auto;
-                margin-right: auto;
+            .couple-duo {
+                max-width: 720px;
+                gap: 2rem;
+            }
+            .couple-meta {
+                margin-top: 1.35rem;
             }
             .calendar-card {
                 max-width: 420px;
@@ -520,34 +1272,122 @@
         @media (prefers-reduced-motion: reduce) {
             .reveal { opacity: 1; transform: none; transition: none; }
             .fade-up-in { opacity: 1; animation: none; }
+            .hero-heart { animation: none; }
         }
     </style>
 </head>
 <body>
 
-    <audio id="bgMusic" preload="auto">
-        <source src="./wedding-bg.mp3" type="audio/mpeg">
+    <audio id="bgMusic" preload="metadata">
+        <source src="./assets/wedding-bg.mp3" type="audio/mpeg">
     </audio>
 
     <main class="app-container">
 
-        <a href="https://weddingsystem.peng582693.workers.dev/" target="_blank" rel="noopener noreferrer" class="floating-action btn-rsvp">
-            <i class="far fa-envelope text-xl mb-1"></i>
-            <span class="text-[10px] tracking-widest font-medium">回執</span>
-        </a>
+        <div class="fab-dock" id="fabDock">
+            <div class="fab-menu" id="fabMenu">
+                <button type="button" id="inviteOpen" class="floating-action btn-fab" aria-label="開啟邀請函" title="邀請函">
+                    <span class="fab-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3.5" y="5.5" width="17" height="13" rx="1.8" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M4.2 6.6 L11.2 12.2 a1.4 1.4 0 0 0 1.6 0 L19.8 6.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path class="fab-heart" d="M12 12c-.7-.8-1.9-.85-2.5-.1-.5.65-.35 1.55.3 2.2L12 16.1l2.2-2c.65-.65.8-1.55.3-2.2-.6-.75-1.8-.7-2.5.1z"/>
+                        </svg>
+                    </span>
+                    <span class="fab-label">邀請函</span>
+                </button>
 
-        <div id="muteToggle" class="floating-action btn-music" aria-label="播放或暫停音樂">
-            <i class="fas fa-volume-xmark" id="muteIcon"></i>
+                <a href="https://weddingsystem.peng582693.workers.dev/" target="_blank" rel="noopener noreferrer" class="floating-action btn-fab" aria-label="開啟婚宴表單" title="婚宴表單">
+                    <span class="fab-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g transform="translate(-0.7 0)">
+                                <rect x="5" y="3.5" width="14" height="17" rx="1.8" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M8 8.5h8M8 12h8M8 15.5h4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                <path class="fab-pen" d="M20.4 12.2 l-4.8 4.8 -1.7.55 .55 -1.7 4.8 -4.8 a0.85 0.85 0 0 1 1.15 1.15z"/>
+                            </g>
+                        </svg>
+                    </span>
+                    <span class="fab-label">表單</span>
+                </a>
+            </div>
+
+            <button type="button" id="fabToggle" class="fab-toggle" aria-label="開啟快捷選單" aria-expanded="false" aria-controls="fabMenu">
+                <svg class="icon-menu" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M5 8h14M5 12h14M5 16h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+                <svg class="icon-close" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M7 7l10 10M17 7L7 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+            </button>
+
+            <button type="button" id="muteToggle" class="floating-action btn-music" aria-label="播放音樂" aria-pressed="false">
+                <svg class="icon-mute" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M4 10v4h3l4 3.5V6.5L7 10H4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                    <path d="M16 9.5l4 5M20 9.5l-4 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <svg class="icon-unmute" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M4 10v4h3l4 3.5V6.5L7 10H4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                    <path d="M15.2 9.2a3.2 3.2 0 0 1 0 5.6M17.6 7a5.6 5.6 0 0 1 0 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </button>
         </div>
 
-        <div class="story-progress-container">
+        <div id="inviteModal" class="invite-modal" role="dialog" aria-modal="true" aria-labelledby="inviteModalTitle" hidden>
+            <div class="invite-modal__panel" id="invitePanel">
+                <button type="button" id="inviteClose" class="invite-modal__close" aria-label="關閉邀請函">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M7 7l10 10M17 7L7 17" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                    </svg>
+                </button>
+                <article class="invite-card">
+                    <h2 id="inviteModalTitle" class="sr-only">致霖與品蓉聯姻婚宴邀請函</h2>
+                    <div class="invite-card__photos-wrap">
+                        <img
+                            src="./assets/invitation-card.png"
+                            alt=""
+                            class="invite-card__photos"
+                            width="800"
+                            height="1200"
+                            decoding="async"
+                        >
+                    </div>
+                    <div class="invite-card__body">
+                        <div>
+                            <p class="invite-card__script">We Are Married</p>
+                            <p class="invite-card__names">致霖<span class="heart" aria-hidden="true">♥</span>品蓉</p>
+                            <p class="invite-card__event">聯姻婚宴</p>
+                            <hr class="invite-card__rule">
+                            <p class="invite-card__msg">誠摯邀請親友們蒞臨，共同見證我們的愛情</p>
+                        </div>
+                        <div>
+                            <div class="invite-card__datebox">
+                                <p class="invite-card__year">2026</p>
+                                <p class="invite-card__md">10.03</p>
+                                <p class="invite-card__time">11:30 AM</p>
+                            </div>
+                            <p class="invite-card__venue">
+                                新竹豐邑<br>
+                                喜來登大飯店<br>
+                                三樓宴會廳 3 廳
+                            </p>
+                            <p class="invite-card__addr">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+                                <span>新竹縣竹北市十興里<br>光明六路東一段 265 號</span>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <div class="story-progress-container" aria-hidden="true">
             <div class="story-progress-bar" id="scrollProgress"></div>
         </div>
 
         <!-- ===== HERO ===== -->
         <section class="hero-section relative w-full overflow-hidden">
             <img
-                src="./assets/R6II2136.jpg"
+                src="./assets/R6II2422.jpg"
                 alt="彭致霖與馮品蓉婚紗照"
                 class="hero-photo film-look"
                 width="1200"
@@ -556,17 +1396,31 @@
                 fetchpriority="high"
             >
 
-            <div class="absolute inset-x-0 bottom-0 hero-scrim pt-28 pb-10 px-6 sm:px-10 text-center">
-                <p class="font-eng text-[11px] tracking-[0.35em] text-white uppercase fade-up-in" style="text-shadow:0 1px 8px rgba(0,0,0,0.5);">The Wedding of</p>
-                <h1 class="font-cursive hero-names leading-none mt-3 fade-up-in" style="animation-delay:0.2s;">
-                    Oscar <span class="text-[1.8rem] mx-1">&amp;</span> Betty
+            <div class="absolute inset-x-0 bottom-0 hero-scrim pt-28 pb-8 px-6 sm:px-10 text-center">
+                <p class="hero-eyebrow fade-up-in">The Wedding of</p>
+                <h1 class="hero-names mt-3 fade-up-in" style="animation-delay:0.2s;">
+                    <span class="name">致霖</span>
+                    <span class="hero-heart" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="heroHeartGrad" x1="0%" y1="0%" x2="40%" y2="100%">
+                                    <stop offset="0%" stop-color="#C97A7A"/>
+                                    <stop offset="55%" stop-color="#A85858"/>
+                                    <stop offset="100%" stop-color="#8F4545"/>
+                                </linearGradient>
+                            </defs>
+                            <path class="heart-fill" d="M12 21s-6.7-4.35-9.33-8.1C.7 9.9 1.35 6.6 4.05 5.25c1.7-.85 3.75-.4 5.05 1.05L12 9.2l2.9-2.9c1.3-1.45 3.35-1.9 5.05-1.05 2.7 1.35 3.35 4.65 1.38 7.65C18.7 16.65 12 21 12 21z"/>
+                            <path class="heart-edge" d="M12 21s-6.7-4.35-9.33-8.1C.7 9.9 1.35 6.6 4.05 5.25c1.7-.85 3.75-.4 5.05 1.05L12 9.2l2.9-2.9c1.3-1.45 3.35-1.9 5.05-1.05 2.7 1.35 3.35 4.65 1.38 7.65C18.7 16.65 12 21 12 21z"/>
+                        </svg>
+                    </span>
+                    <span class="name">品蓉</span>
                 </h1>
-                <p class="font-eng mt-4 text-white tracking-[0.28em] text-sm fade-up-in" style="animation-delay:0.4s; text-shadow:0 1px 8px rgba(0,0,0,0.5);">
-                    2026 · 10 · 03
+                <p class="hero-eng mt-5 fade-up-in" style="animation-delay:0.4s;">
+                    Oscar<span class="dot">·</span>Betty
                 </p>
-                <div class="divider-ornament mt-5 opacity-90"></div>
-                <p class="mt-4 text-[12px] tracking-[0.2em] text-white fade-up-in" style="animation-delay:0.55s; text-shadow:0 1px 8px rgba(0,0,0,0.5);">
-                    彭致霖 &nbsp;·&nbsp; 馮品蓉
+                <div class="divider-ornament mt-4 opacity-90"></div>
+                <p class="hero-date mt-4 fade-up-in" style="animation-delay:0.55s;">
+                    2026 · 10 · 03<span class="weekday"><span class="paren">(</span><span class="day">六</span><span class="paren">)</span></span>
                 </p>
             </div>
         </section>
@@ -577,7 +1431,7 @@
             <div class="invite-ornament"><span></span></div>
             <p class="invite-text">
                 誠摯地邀請我們人生中不同階段重要的親友們<br>
-                參與我們的婚禮，見證我們的幸福
+                參與我們的婚禮，見證我們的愛情
             </p>
             <div class="divider-ornament mt-8"></div>
         </section>
@@ -591,71 +1445,104 @@
                 <div class="divider-ornament mt-5"></div>
             </div>
 
-            <div class="content-narrow text-center text-[13px] sm:text-[14px] leading-[2.45] tracking-[0.14em] text-[var(--text-gray)] reveal delay-100">
+            <div class="content-narrow prose-soft reveal delay-100">
                 <p>從同事到朋友，再成為彼此最安心的依靠</p>
                 <p>我們把日常裡的陪伴，慢慢走成一生的約定</p>
-                <p class="text-[11px] mt-6 opacity-65 tracking-[0.2em]">—— 願此後每一天，都與你攜手同行</p>
+                <p class="text-[11px] mt-6 tracking-[0.24em]" style="color: var(--text-gray); font-weight:500;">—— 願此後每一天，都與彼此攜手同行</p>
             </div>
         </section>
 
 
         <!-- ===== NAMES + PORTRAIT ===== -->
-        <section class="py-10 sm:py-12 section-pad">
-            <div class="relative reveal portrait-wrap">
-                <div class="photo-frame aspect-[3/4] rounded-sm overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.08)]">
-                    <img
-                        src="./assets/R6II2713.jpg"
-                        alt="紗幔下的親密時刻"
-                        class="film-look object-[center_30%]"
-                        width="1200"
-                        height="1800"
-                        loading="lazy"
-                        decoding="async"
-                    >
-                </div>
-                <div class="absolute left-3 top-6 z-10 name-overlay -rotate-3">
-                    <p class="font-cursive name-line">Oscar</p>
-                    <p class="text-[var(--title-red)] text-lg ml-4 my-0.5 font-medium">&amp;</p>
-                    <p class="font-cursive name-line ml-5">Betty</p>
-                </div>
-            </div>
+        <section class="py-10 sm:py-14 section-pad">
+            <div class="couple-duo reveal">
+                <article class="couple-card">
+                    <div class="photo-frame">
+                        <img
+                            src="./assets/R6II2036.jpg"
+                            alt="新郎彭致霖獨照"
+                            class="film-look"
+                            width="933"
+                            height="1400"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    </div>
+                    <div class="couple-meta">
+                        <p class="couple-role">Groom</p>
+                        <p class="couple-name">彭致霖</p>
+                        <p class="couple-eng">Oscar</p>
+                    </div>
+                </article>
 
-            <div class="grid grid-cols-2 gap-8 mt-10 text-center reveal delay-100 content-narrow">
-                <div>
-                    <p class="font-eng text-[11px] tracking-[0.25em] text-[var(--cursive-gold)] uppercase mb-2">Groom</p>
-                    <p class="text-[14px] tracking-[0.2em]">彭致霖</p>
-                </div>
-                <div>
-                    <p class="font-eng text-[11px] tracking-[0.25em] text-[var(--cursive-gold)] uppercase mb-2">Bride</p>
-                    <p class="text-[14px] tracking-[0.2em]">馮品蓉</p>
-                </div>
+                <article class="couple-card">
+                    <div class="photo-frame">
+                        <img
+                            src="./assets/R6II1971.jpg"
+                            alt="新娘馮品蓉獨照"
+                            class="film-look"
+                            width="933"
+                            height="1400"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    </div>
+                    <div class="couple-meta">
+                        <p class="couple-role">Bride</p>
+                        <p class="couple-name">馮品蓉</p>
+                        <p class="couple-eng">Betty</p>
+                    </div>
+                </article>
             </div>
         </section>
 
 
         <!-- ===== QUOTE + GALLERY ===== -->
         <section class="py-12 sm:py-16 flex flex-col items-center bg-[var(--bg-soft)]">
-            <div class="content-narrow section-pad text-center reveal mb-10 sm:mb-12">
+            <div class="content-narrow section-pad reveal mb-10 sm:mb-12">
                 <div class="invite-ornament" style="margin-bottom:1.5rem;"><span></span></div>
-                <p class="text-[14px] sm:text-[15px] leading-[2.4] tracking-[0.18em] text-[var(--text-dark)] font-light">
-                    人生其實只要兩次幸運就好<br>
-                    一次遇見你，一次是走到底
+                <p class="prose-quote">
+                    人生只要兩次幸運就好<br>
+                    一次遇見彼此，一次是走到底
                 </p>
             </div>
 
             <div class="gallery-grid reveal">
-                <div class="photo-frame aspect-[3/2] gallery-wide">
-                    <img src="./assets/R6II2542.jpg" alt="草地上歡快的捧舉瞬間" class="film-look object-cover" width="1800" height="1200" loading="lazy" decoding="async">
+                <div class="gallery-shot gallery-shot--lift">
+                    <img
+                        src="./assets/R6II2542.jpg"
+                        alt="草地上歡快的捧舉瞬間"
+                        class="film-look"
+                        width="1800"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                    >
                 </div>
-                <div class="photo-frame aspect-[3/2] gallery-wide">
-                    <img src="./assets/R6II2607.jpg" alt="Save the Date 草地合影" class="film-look object-cover" width="1800" height="1200" loading="lazy" decoding="async">
+                <p class="gallery-caption">Forever love</p>
+                <div class="gallery-shot gallery-shot--studio">
+                    <img
+                        src="./assets/R6II2128.jpg"
+                        alt="背靠背的優雅合影"
+                        class="film-look"
+                        width="1066"
+                        height="1600"
+                        loading="lazy"
+                        decoding="async"
+                    >
                 </div>
-                <div class="photo-frame aspect-[2/3] gallery-tall">
-                    <img src="./assets/R6II2844.jpg" alt="海邊靜謐的相依背影" class="film-look object-cover object-center" width="1200" height="1800" loading="lazy" decoding="async">
+                <div class="gallery-shot gallery-shot--shore">
+                    <img
+                        src="./assets/R6II2844.jpg"
+                        alt="海邊靜謐的相依背影"
+                        class="film-look"
+                        width="1200"
+                        height="1800"
+                        loading="lazy"
+                        decoding="async"
+                    >
                 </div>
             </div>
-
-            <p class="mt-10 font-cursive text-3xl text-[var(--cursive-gold)] reveal delay-100">Forever love</p>
         </section>
 
 
@@ -690,9 +1577,37 @@
                 </div>
             </div>
 
-            <div class="text-center tracking-[0.15em] text-[var(--text-dark)] text-[13px] sm:text-[14px] leading-relaxed reveal">
-                <p class="font-eng text-[15px] tracking-[0.2em] mb-3">Saturday · October 3 · 2026</p>
-                <p class="text-[var(--text-gray)] mt-1">午宴 11:30 入席</p>
+            <div class="text-center reveal">
+                <p class="font-eng text-[16px] tracking-[0.28em] text-[var(--text-dark)] mb-1" style="font-weight:700;">Saturday · October 3 · 2026</p>
+                <p class="time-highlight">午宴 11:30 入席</p>
+            </div>
+
+            <div class="contact-block content-narrow reveal mt-10">
+                <h4>Contact</h4>
+                <p class="contact-zh">聯絡窗口</p>
+                <div class="contact-pair">
+                    <div class="contact-person">
+                        <p class="role">Groom</p>
+                        <p class="name">彭致霖</p>
+                        <a class="contact-line" href="https://line.me/ti/p/vXgSSCba1l" target="_blank" rel="noopener noreferrer" aria-label="開啟 LINE，加入新郎彭致霖好友">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.8 9.4c0-3.6-3.6-6.5-8-6.5S3.8 5.8 3.8 9.4c0 3.2 2.8 5.9 6.7 6.4.26.05.61.17.7.38.08.2.05.51.03.71l-.11.7c-.03.23-.17.9.79.49s5.24-3.1 7.15-5.3c1.3-1.4 1.74-2.8 1.74-4.32z"/></svg>
+                            LINE
+                        </a>
+                    </div>
+                    <div class="contact-person">
+                        <p class="role">Bride</p>
+                        <p class="name">馮品蓉</p>
+                        <a class="contact-line" href="https://line.me/ti/p/kdeBlaVR8R" target="_blank" rel="noopener noreferrer" aria-label="開啟 LINE，加入新娘馮品蓉好友">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.8 9.4c0-3.6-3.6-6.5-8-6.5S3.8 5.8 3.8 9.4c0 3.2 2.8 5.9 6.7 6.4.26.05.61.17.7.38.08.2.05.51.03.71l-.11.7c-.03.23-.17.9.79.49s5.24-3.1 7.15-5.3c1.3-1.4 1.74-2.8 1.74-4.32z"/></svg>
+                            LINE
+                        </a>
+                    </div>
+                </div>
+                <p class="contact-hint">
+                    點擊上方 LINE 即可加好友詢問；<br>
+                    出席回覆請填寫
+                    <a href="https://weddingsystem.peng582693.workers.dev/" target="_blank" rel="noopener noreferrer">婚宴表單</a>
+                </p>
             </div>
         </section>
 
@@ -707,115 +1622,93 @@
 
             <div class="w-full reveal">
                 <div class="text-center mb-8">
-                    <h3 class="text-[16px] sm:text-[18px] font-medium tracking-[0.14em] text-[var(--text-dark)]">
+                    <h3 class="text-[16px] sm:text-[17px] tracking-[0.2em] text-[var(--text-dark)]" style="font-weight:600;">
                         新竹豐邑喜來登大飯店
                     </h3>
-                    <p class="font-eng text-[12px] tracking-[0.14em] text-[var(--text-gray)] mt-1.5">
+                    <p class="font-eng text-[12px] tracking-[0.2em] text-[var(--text-gray)] mt-2" style="font-weight:600;">
                         Sheraton Hsinchu Hotel
                     </p>
-                    <p class="mt-4 text-[12px] tracking-[0.2em] text-[var(--title-red)]">
+                    <p class="mt-4 text-[12px] tracking-[0.28em] text-[var(--title-red)]" style="font-weight:600;">
                         3F · 宴會廳 3 廳
                     </p>
-                    <p class="mt-3 text-[11px] sm:text-[12px] text-[var(--text-gray)] leading-relaxed tracking-wide">
+                    <p class="mt-3 text-[11px] sm:text-[12px] text-[var(--text-dark)] leading-relaxed tracking-[0.14em]" style="font-weight:500;">
                         新竹縣竹北市光明六路東一段 265 號
                     </p>
                 </div>
 
                 <div class="venue-layout">
-                    <!-- 左側：質感示意圖（非 AI 圖） -->
+                    <!-- 左側：位置示意圖 -->
                     <div class="venue-map">
-                        <svg viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="喜來登飯店位置示意圖">
-                            <rect width="420" height="340" fill="#F6F3EE"/>
-
-                            <!-- 淡街廓 -->
-                            <rect x="36" y="56" width="100" height="70" fill="#EBE6DF"/>
-                            <rect x="36" y="160" width="100" height="80" fill="#EBE6DF"/>
-                            <rect x="220" y="56" width="88" height="70" fill="#EBE6DF"/>
-                            <rect x="220" y="160" width="66" height="52" fill="#E5DFD6"/>
-
-                            <!-- 國道一號 -->
-                            <rect x="156" y="40" width="36" height="230" fill="#DDD6CB"/>
-                            <line x1="174" y1="50" x2="174" y2="258" stroke="#FAF8F4" stroke-width="1.5" stroke-dasharray="6 5"/>
-                            <text x="174" y="58" text-anchor="middle" fill="#6B6560" font-size="9" font-family="Noto Serif TC, serif">國道一號</text>
-                            <text x="174" y="72" text-anchor="middle" fill="#9A938A" font-size="7">↑ 北</text>
-                            <text x="174" y="268" text-anchor="middle" fill="#9A938A" font-size="7">南 ↓</text>
-
-                            <!-- 交流道 -->
-                            <circle cx="174" cy="128" r="26" fill="none" stroke="#B7AFA3" stroke-width="1.75"/>
-                            <circle cx="174" cy="128" r="8" fill="#F6F3EE" stroke="#C9C2B6" stroke-width="1"/>
-                            <text x="120" y="125" text-anchor="end" fill="#6B6560" font-size="8" font-family="Noto Serif TC, serif">竹北／芎林</text>
-                            <text x="120" y="137" text-anchor="end" fill="#6B6560" font-size="8" font-family="Noto Serif TC, serif">交流道</text>
-
-                            <!-- 光明六路 -->
-                            <rect x="28" y="120" width="364" height="16" fill="#CFC5B7"/>
-                            <text x="44" y="131" fill="#3D3A36" font-size="10" font-family="Noto Serif TC, serif">光明六路</text>
-                            <text x="230" y="131" fill="#5C574F" font-size="8" font-family="Noto Serif TC, serif">東一段</text>
-
-                            <!-- 福興路 -->
-                            <rect x="36" y="188" width="250" height="5" fill="#DDD6CB"/>
-                            <text x="44" y="184" fill="#9A938A" font-size="7">福興路</text>
-
-                            <!-- 莊敬北路 -->
-                            <rect x="248" y="64" width="8" height="150" fill="#C9C0B3"/>
-                            <text x="252" y="58" text-anchor="middle" fill="#5C574F" font-size="8" font-family="Noto Serif TC, serif">莊敬北路</text>
-
-                            <!-- 自強北路 -->
-                            <rect x="300" y="64" width="7" height="150" fill="#D5CDC1"/>
-                            <text x="304" y="58" text-anchor="middle" fill="#8A837A" font-size="7.5">自強北路</text>
-
-                            <!-- 高鐵 -->
-                            <line x1="368" y1="40" x2="368" y2="260" stroke="#C0B8AC" stroke-width="1.5" stroke-dasharray="3 4"/>
-                            <rect x="344" y="96" width="48" height="26" fill="#FAF8F4" stroke="#B7AFA3" stroke-width="1"/>
-                            <text x="368" y="107" text-anchor="middle" fill="#5C574F" font-size="9" font-family="Noto Serif TC, serif">高鐵</text>
-                            <text x="368" y="118" text-anchor="middle" fill="#8A837A" font-size="7">新竹站</text>
-
-                            <!-- 地標 -->
-                            <text x="86" y="92" text-anchor="middle" fill="#8A837A" font-size="8" font-family="Noto Serif TC, serif">縣政府</text>
-                            <text x="253" y="188" text-anchor="middle" fill="#8A837A" font-size="8" font-family="Noto Serif TC, serif">縣立體育場</text>
-
-                            <!-- 飯店標記：光明六路 × 莊敬北路 -->
-                            <circle cx="252" cy="128" r="11" fill="none" stroke="#8B3A3A" stroke-width="1" opacity="0.35"/>
-                            <circle cx="252" cy="128" r="5.5" fill="#8B3A3A"/>
-                            <circle cx="252" cy="128" r="2" fill="#FAF8F4"/>
-
-                            <!-- 底部說明 -->
-                            <line x1="48" y1="292" x2="372" y2="292" stroke="#E2DBD1" stroke-width="1"/>
-                            <text x="210" y="312" text-anchor="middle" fill="#5C574F" font-size="11" font-family="Noto Serif TC, serif">喜來登大飯店</text>
-                            <text x="210" y="328" text-anchor="middle" fill="#9A938A" font-size="8" font-family="Cormorant Garamond, serif">Guangming 6th Rd. × Zhuangjing N. Rd.</text>
-                        </svg>
+                        <img
+                            src="./assets/final-map.jpg"
+                            alt="喜來登飯店位置圖"
+                            width="1403"
+                            height="1121"
+                            loading="lazy"
+                            decoding="async"
+                        >
                     </div>
 
-                    <!-- 右側：交通資訊（與地圖頂底對齊） -->
+                    <!-- 右側：交通資訊 -->
                     <div class="venue-panel">
                         <p class="venue-panel-title">How to Arrive</p>
-
-                        <div class="venue-cross">
-                            <h4>光明六路東一段 × 莊敬北路</h4>
-                            <p class="eng">Dong Sec. 1, Guangming 6th Rd. × Zhuangjing N. Rd.</p>
-                            <p class="note">飯店附設停車場 · 賓客免費停車</p>
-                        </div>
+                        <p class="venue-panel-sub">交通資訊</p>
 
                         <div class="transport-list">
                             <div class="transport-item">
                                 <span class="transport-tag">高鐵</span>
-                                <p>至<strong>高鐵新竹站</strong>後，搭免費接駁或計程車，約 5–10 分鐘抵達。</p>
+                                <div class="transport-body">
+                                    <p class="transport-station">於<strong>高鐵新竹站</strong>下車</p>
+                                    <div class="transport-options">
+                                        <div class="transport-option">
+                                            <span class="transport-option-num">1</span>
+                                            <p><strong>計程車</strong>｜車程約 5–10 分鐘。</p>
+                                        </div>
+                                        <div class="transport-option">
+                                            <span class="transport-option-num">2</span>
+                                            <p><strong>快捷公車 5900</strong>｜搭乘「高鐵新竹站－竹北火車站」路線，於<strong>新竹喜來登大飯店站</strong>下車。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="transport-item">
+                                <span class="transport-tag">火車</span>
+                                <div class="transport-body">
+                                    <p class="transport-station">於<strong>台鐵竹北站</strong>下車</p>
+                                    <div class="transport-options">
+                                        <div class="transport-option">
+                                            <span class="transport-option-num">1</span>
+                                            <p><strong>計程車</strong>｜車程約 10 分鐘。</p>
+                                        </div>
+                                        <div class="transport-option">
+                                            <span class="transport-option-num">2</span>
+                                            <p><strong>快捷公車 5900</strong>｜於<strong>新竹喜來登大飯店站</strong>下車。</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="transport-item">
                                 <span class="transport-tag">開車</span>
-                                <p>國道一號下<strong>竹北／芎林交流道</strong>，沿光明六路往東至<strong>莊敬北路口</strong>。</p>
+                                <div class="transport-body">
+                                    <p>國道一號下<strong>竹北／芎林交流道</strong>，沿<strong>光明六路東一段</strong>前往飯店。</p>
+                                    <p class="transport-note">飯店附設停車場 · 賓客免費停車</p>
+                                </div>
                             </div>
                             <div class="transport-item">
                                 <span class="transport-tag">會場</span>
-                                <p>請至飯店 <strong>3F 宴會廳 3 廳</strong>，建議提早 15 分鐘抵達。</p>
+                                <div class="transport-body">
+                                    <p>請至 <strong>3F 宴會廳 3 廳</strong>，建議提早 15 分鐘抵達。</p>
+                                </div>
                             </div>
                         </div>
+                        <p class="transport-disclaimer">以上交通資訊僅供參考，實際班次與行車時間請依當日狀況為準。</p>
 
                         <div class="venue-nav">
                             <a class="nav-btn nav-btn-primary" href="https://www.google.com/maps/place/%E6%96%B0%E7%AB%B9%E8%B1%90%E9%82%91%E5%96%9C%E4%BE%86%E7%99%BB%E5%A4%A7%E9%A3%AF%E5%BA%97/@24.8155513,121.0254838,17z" target="_blank" rel="noopener noreferrer">
                                 Google Maps 導航
                             </a>
-                            <a class="nav-btn nav-btn-ghost" href="https://maps.apple.com/?q=%E6%96%B0%E7%AB%B9%E8%B1%90%E9%82%91%E5%96%9C%E4%BE%86%E7%99%BB%E5%A4%A7%E9%A3%AF%E5%BA%97" target="_blank" rel="noopener noreferrer">
-                                Apple 地圖
+                            <a class="nav-btn nav-btn-ghost" href="https://maps.apple.com/?q=%E6%96%B0%E7%AB%B9%E8%B1%90%E9%82%91%E5%96%9C%E4%BE%86%E7%99%BB%E5%A4%A7%E9%A3%AF%E5%BA%97&ll=24.8155513,121.0254838" target="_blank" rel="noopener noreferrer">
+                                Apple Maps 導航
                             </a>
                         </div>
                     </div>
@@ -828,7 +1721,7 @@
                     期待與您相見
                 </p>
                 <div class="mt-8 inline-block bg-[var(--accent-ink)] text-white px-5 py-2 text-[11px] tracking-[0.18em]">
-                    Tips · 開車不喝酒，喝酒不開車
+                    － 開車不喝酒，喝酒找代駕 －
                 </div>
                 <p class="font-cursive text-2xl text-[var(--cursive-gold)] mt-10">With love</p>
             </div>
@@ -860,16 +1753,15 @@
 
             const bgMusic = document.getElementById('bgMusic');
             const muteToggle = document.getElementById('muteToggle');
-            const muteIcon = document.getElementById('muteIcon');
             const CHORUS_START = 58;
             let isPlaying = false;
 
             bgMusic.volume = 0.45;
 
-            const updateUI = () => {
+            const updateMusicUI = () => {
                 muteToggle.classList.toggle('is-playing', isPlaying);
-                muteIcon.classList.toggle('fa-volume-xmark', !isPlaying);
-                muteIcon.classList.toggle('fa-volume-up', isPlaying);
+                muteToggle.setAttribute('aria-pressed', String(isPlaying));
+                muteToggle.setAttribute('aria-label', isPlaying ? '暫停音樂' : '播放音樂');
             };
 
             const playMusic = () => {
@@ -878,7 +1770,7 @@
                 }
                 return bgMusic.play().then(() => {
                     isPlaying = true;
-                    updateUI();
+                    updateMusicUI();
                 }).catch(() => {});
             };
 
@@ -886,22 +1778,98 @@
                 bgMusic.currentTime = CHORUS_START;
                 bgMusic.play().then(() => {
                     isPlaying = true;
-                    updateUI();
+                    updateMusicUI();
                 }).catch(() => {});
             });
 
-            const toggleMusic = (e) => {
+            muteToggle.addEventListener('click', (e) => {
                 e.stopPropagation();
                 if (isPlaying) {
                     bgMusic.pause();
                     isPlaying = false;
-                    updateUI();
+                    updateMusicUI();
                 } else {
                     playMusic();
                 }
+            });
+
+            const fabDock = document.getElementById('fabDock');
+            const fabToggle = document.getElementById('fabToggle');
+            const setFabOpen = (open) => {
+                fabDock.classList.toggle('is-open', open);
+                fabToggle.setAttribute('aria-expanded', String(open));
+                fabToggle.setAttribute('aria-label', open ? '關閉快捷選單' : '開啟快捷選單');
+            };
+            fabToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                setFabOpen(!fabDock.classList.contains('is-open'));
+            });
+            document.addEventListener('click', (e) => {
+                if (!fabDock.contains(e.target)) setFabOpen(false);
+            });
+
+            const inviteModal = document.getElementById('inviteModal');
+            const invitePanel = document.getElementById('invitePanel');
+            const inviteOpen = document.getElementById('inviteOpen');
+            const inviteClose = document.getElementById('inviteClose');
+            let lastFocus = null;
+
+            const getFocusable = () => Array.from(
+                invitePanel.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')
+            ).filter(el => !el.hasAttribute('disabled') && el.offsetParent !== null);
+
+            const openInvite = () => {
+                lastFocus = document.activeElement;
+                inviteModal.hidden = false;
+                requestAnimationFrame(() => inviteModal.classList.add('is-open'));
+                document.body.classList.add('invite-open');
+                setFabOpen(false);
+                inviteClose.focus();
             };
 
-            muteToggle.addEventListener('click', toggleMusic);
+            const closeInvite = () => {
+                inviteModal.classList.remove('is-open');
+                document.body.classList.remove('invite-open');
+                const onEnd = (e) => {
+                    if (e.target !== inviteModal) return;
+                    inviteModal.hidden = true;
+                    inviteModal.removeEventListener('transitionend', onEnd);
+                };
+                inviteModal.addEventListener('transitionend', onEnd);
+                if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+            };
+
+            inviteOpen.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openInvite();
+            });
+            inviteClose.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeInvite();
+            });
+            inviteModal.addEventListener('click', (e) => {
+                if (e.target === inviteModal) closeInvite();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (!inviteModal.classList.contains('is-open')) return;
+                if (e.key === 'Escape') {
+                    closeInvite();
+                    return;
+                }
+                if (e.key !== 'Tab') return;
+                const focusable = getFocusable();
+                if (!focusable.length) return;
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            });
 
             const unlockAudio = () => {
                 if (!isPlaying) playMusic();
