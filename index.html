@@ -334,97 +334,61 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            pointer-events: none;
-            transform: translateY(8px);
-            transition: max-height 0.28s ease, opacity 0.22s ease, transform 0.22s ease;
-        }
-        .fab-dock.is-open .fab-menu {
-            max-height: 160px;
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateY(0);
-        }
-        .fab-toggle {
-            width: 46px;
-            height: 46px;
-            border: none;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.95);
-            color: var(--text-dark);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.14);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.2s ease, background 0.2s ease;
-        }
-        .fab-toggle:active { transform: scale(0.92); }
-        .fab-toggle svg {
-            width: 20px;
-            height: 20px;
-            display: block;
-        }
-        .fab-toggle .icon-close { display: none; }
-        .fab-dock.is-open .fab-toggle .icon-menu { display: none; }
-        .fab-dock.is-open .fab-toggle .icon-close { display: block; }
-        .fab-dock.is-open .fab-toggle {
-            background: var(--accent-ink);
-            color: #fff;
+            gap: 10px;
         }
 
         .btn-fab {
-            width: 52px;
-            min-height: 52px;
-            padding: 7px 4px 6px;
-            gap: 3px;
-            background: rgba(255,255,255,0.96);
-            border: 1px solid rgba(0,0,0,0.05);
-            box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-            border-radius: 12px;
-            color: var(--text-gray);
+            width: auto;
+            min-width: 44px;
+            min-height: 44px;
+            padding: 4px 2px;
+            gap: 4px;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+            color: #FFF8F0;
             font: inherit;
             text-decoration: none;
             appearance: none;
             -webkit-appearance: none;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.45)) drop-shadow(0 3px 8px rgba(0,0,0,0.28));
         }
         .fab-icon {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             flex-shrink: 0;
-            color: var(--text-dark);
+            color: #FFF8F0;
         }
         .fab-icon svg {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             display: block;
         }
         .fab-icon .fab-heart,
         .fab-icon .fab-pen {
-            stroke: rgba(255,255,255,0.95);
-            stroke-width: 2;
+            stroke: rgba(255,248,240,0.95);
+            stroke-width: 1.6;
             paint-order: stroke fill;
         }
         .fab-icon .fab-heart {
-            fill: var(--hero-heart);
+            fill: #C97A7A;
         }
         .fab-icon .fab-pen {
-            fill: var(--title-red);
+            fill: #D4A574;
         }
         .fab-label {
             display: block;
-            font-size: 9px;
+            font-size: 10px;
             line-height: 1;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.08em;
             font-weight: 600;
-            color: var(--text-dark);
+            color: #FFF8F0;
             white-space: nowrap;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
         }
 
         .btn-music {
@@ -1350,7 +1314,7 @@
 </head>
 <body>
 
-    <audio id="bgMusic" preload="metadata">
+    <audio id="bgMusic" preload="auto" loop>
         <source src="./assets/wedding-bg.mp3" type="audio/mpeg">
     </audio>
 
@@ -1382,15 +1346,6 @@
                     <span class="fab-label">表單</span>
                 </a>
             </div>
-
-            <button type="button" id="fabToggle" class="fab-toggle" aria-label="開啟快捷選單" aria-expanded="false" aria-controls="fabMenu">
-                <svg class="icon-menu" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M5 8h14M5 12h14M5 16h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                </svg>
-                <svg class="icon-close" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M7 7l10 10M17 7L7 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                </svg>
-            </button>
 
             <button type="button" id="muteToggle" class="floating-action btn-music" aria-label="播放音樂" aria-pressed="false">
                 <svg class="icon-mute" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -1874,8 +1829,23 @@
                 return bgMusic.play().then(() => {
                     isPlaying = true;
                     updateMusicUI();
-                }).catch(() => {});
+                });
             };
+
+            const unlockMusicOnGesture = () => {
+                if (isPlaying) return;
+                playMusic().catch(() => {});
+            };
+
+            // 進站立刻嘗試播放；若被瀏覽器自動播放政策擋下，改在第一次互動時接續播放
+            playMusic().catch(() => {
+                const events = ['pointerdown', 'touchstart', 'click', 'keydown'];
+                const once = () => {
+                    events.forEach(ev => document.removeEventListener(ev, once));
+                    unlockMusicOnGesture();
+                };
+                events.forEach(ev => document.addEventListener(ev, once, { once: true, passive: true }));
+            });
 
             bgMusic.addEventListener('ended', () => {
                 bgMusic.currentTime = CHORUS_START;
@@ -1892,23 +1862,8 @@
                     isPlaying = false;
                     updateMusicUI();
                 } else {
-                    playMusic();
+                    playMusic().catch(() => {});
                 }
-            });
-
-            const fabDock = document.getElementById('fabDock');
-            const fabToggle = document.getElementById('fabToggle');
-            const setFabOpen = (open) => {
-                fabDock.classList.toggle('is-open', open);
-                fabToggle.setAttribute('aria-expanded', String(open));
-                fabToggle.setAttribute('aria-label', open ? '關閉快捷選單' : '開啟快捷選單');
-            };
-            fabToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                setFabOpen(!fabDock.classList.contains('is-open'));
-            });
-            document.addEventListener('click', (e) => {
-                if (!fabDock.contains(e.target)) setFabOpen(false);
             });
 
             const inviteModal = document.getElementById('inviteModal');
@@ -1926,7 +1881,6 @@
                 inviteModal.hidden = false;
                 requestAnimationFrame(() => inviteModal.classList.add('is-open'));
                 document.body.classList.add('invite-open');
-                setFabOpen(false);
                 inviteClose.focus();
             };
 
