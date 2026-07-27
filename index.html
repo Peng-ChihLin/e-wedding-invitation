@@ -1811,7 +1811,6 @@
 
             const bgMusic = document.getElementById('bgMusic');
             const muteToggle = document.getElementById('muteToggle');
-            const CHORUS_START = 58;
             let isPlaying = false;
 
             bgMusic.volume = 0.45;
@@ -1822,15 +1821,10 @@
                 muteToggle.setAttribute('aria-label', isPlaying ? '暫停音樂' : '播放音樂');
             };
 
-            const playMusic = () => {
-                if (bgMusic.currentTime < CHORUS_START) {
-                    bgMusic.currentTime = CHORUS_START;
-                }
-                return bgMusic.play().then(() => {
-                    isPlaying = true;
-                    updateMusicUI();
-                });
-            };
+            const playMusic = () => bgMusic.play().then(() => {
+                isPlaying = true;
+                updateMusicUI();
+            });
 
             const unlockMusicOnGesture = () => {
                 if (isPlaying) return;
@@ -1845,14 +1839,6 @@
                     unlockMusicOnGesture();
                 };
                 events.forEach(ev => document.addEventListener(ev, once, { once: true, passive: true }));
-            });
-
-            bgMusic.addEventListener('ended', () => {
-                bgMusic.currentTime = CHORUS_START;
-                bgMusic.play().then(() => {
-                    isPlaying = true;
-                    updateMusicUI();
-                }).catch(() => {});
             });
 
             muteToggle.addEventListener('click', (e) => {
