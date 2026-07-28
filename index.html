@@ -659,32 +659,34 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 1.05rem 0.5rem 1.15rem;
+            padding: 1.2rem 0.55rem 1.25rem;
             min-width: 0;
         }
         .contact-person .role {
             margin: 0;
             font-family: 'Cormorant Garamond', serif;
             font-size: 11px;
-            letter-spacing: 0.22em;
+            letter-spacing: 0.28em;
             text-transform: uppercase;
-            color: var(--text-muted);
-            font-weight: 600;
+            color: var(--cursive-gold);
+            font-weight: 700;
         }
         .contact-person .name {
-            margin: 0.4rem 0 0;
-            font-size: clamp(13px, 3.8vw, 15px);
-            letter-spacing: 0.16em;
+            margin: 0.55rem 0 0;
+            font-family: var(--font-serif-zh);
+            font-size: clamp(1.35rem, 5.2vw, 1.7rem);
+            letter-spacing: 0.28em;
             font-weight: 600;
-            color: var(--text-dark);
-            padding-left: 0.16em;
+            color: var(--title-red);
+            padding-left: 0.28em;
+            line-height: 1.2;
         }
         .contact-person .eng {
-            margin: 0.28rem 0 0;
+            margin: 0.35rem 0 0;
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(12px, 3.2vw, 13px);
-            letter-spacing: 0.18em;
-            color: var(--text-gray);
+            font-size: clamp(13px, 3.4vw, 15px);
+            letter-spacing: 0.22em;
+            color: var(--text-muted);
             font-weight: 600;
         }
         .contact-line {
@@ -692,7 +694,7 @@
             align-items: center;
             justify-content: center;
             gap: 0.35rem;
-            margin-top: 0.75rem;
+            margin-top: 0.9rem;
             min-width: 0;
             width: 100%;
             max-width: 7.2rem;
@@ -1314,7 +1316,7 @@
 </head>
 <body>
 
-    <audio id="bgMusic" preload="auto" loop>
+    <audio id="bgMusic" preload="auto">
         <source src="./assets/wedding-bg.mp3" type="audio/mpeg">
     </audio>
 
@@ -1808,6 +1810,7 @@
 
             const bgMusic = document.getElementById('bgMusic');
             const muteToggle = document.getElementById('muteToggle');
+            const CHORUS_START = 50;
             let isPlaying = false;
 
             bgMusic.volume = 0.45;
@@ -1818,10 +1821,15 @@
                 muteToggle.setAttribute('aria-label', isPlaying ? '暫停音樂' : '播放音樂');
             };
 
-            const playMusic = () => bgMusic.play().then(() => {
-                isPlaying = true;
-                updateMusicUI();
-            });
+            const playMusic = () => {
+                if (bgMusic.currentTime < CHORUS_START) {
+                    bgMusic.currentTime = CHORUS_START;
+                }
+                return bgMusic.play().then(() => {
+                    isPlaying = true;
+                    updateMusicUI();
+                });
+            };
 
             const unlockMusicOnGesture = () => {
                 if (isPlaying) return;
@@ -1836,6 +1844,14 @@
                     unlockMusicOnGesture();
                 };
                 events.forEach(ev => document.addEventListener(ev, once, { once: true, passive: true }));
+            });
+
+            bgMusic.addEventListener('ended', () => {
+                bgMusic.currentTime = CHORUS_START;
+                bgMusic.play().then(() => {
+                    isPlaying = true;
+                    updateMusicUI();
+                }).catch(() => {});
             });
 
             muteToggle.addEventListener('click', (e) => {
