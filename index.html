@@ -741,9 +741,9 @@
             display: inline-block;
             margin-top: 0.85rem;
             padding: 0.55rem 1.1rem;
-            border: 1px solid rgba(172,134,96,0.45);
-            background: rgba(172,134,96,0.1);
-            color: var(--title-red);
+            border: 1px solid rgba(90, 62, 43, 0.35);
+            background: rgba(90, 62, 43, 0.06);
+            color: #5A3E2B;
             font-size: 14px;
             letter-spacing: 0.22em;
             font-weight: 700;
@@ -1055,16 +1055,20 @@
             min-width: 0;
         }
         .transport-station {
-            margin-bottom: 0.45rem !important;
+            margin-bottom: 0.55rem !important;
+            font-size: 12.5px !important;
+            color: #5A3E2B !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.08em !important;
         }
         .transport-options {
             display: grid;
-            gap: 0.4rem;
+            gap: 0.5rem;
         }
         .transport-option {
             display: grid;
             grid-template-columns: 18px 1fr;
-            gap: 0.45rem;
+            gap: 0.5rem;
             align-items: start;
         }
         .transport-option-num {
@@ -1073,47 +1077,70 @@
             justify-content: center;
             width: 18px;
             height: 18px;
-            margin-top: 0.15rem;
+            margin-top: 0.2rem;
             border-radius: 50%;
-            background: rgba(172, 134, 96, 0.12);
-            color: var(--title-red);
+            background: rgba(90, 62, 43, 0.1);
+            color: #5A3E2B;
             font-family: 'Cormorant Garamond', serif;
             font-size: 11px;
             line-height: 1;
             font-weight: 700;
         }
         .transport-option p {
-            font-size: 11.5px;
-            line-height: 1.7;
-            color: var(--text-gray);
+            font-size: 12px;
+            line-height: 1.75;
+            letter-spacing: 0.04em;
+            color: #5A3E2B;
+            font-weight: 500;
+        }
+        .transport-option strong {
+            color: #5A3E2B;
+            font-weight: 700;
+        }
+        .transport-option .transport-meta {
+            color: #5A3E2B;
+            font-weight: 500;
         }
         .transport-item p {
             margin: 0;
             font-size: 12.5px;
             line-height: 1.75;
             letter-spacing: 0.06em;
-            color: var(--text-dark);
+            color: #5A3E2B;
             text-align: left;
             font-weight: 500;
         }
         .transport-item strong {
-            color: var(--text-dark);
+            color: #5A3E2B;
             font-weight: 700;
         }
         .transport-item .transport-note {
-            display: block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
             width: fit-content;
             max-width: 100%;
-            margin-top: 0.55rem;
-            padding: 0.45rem 0.75rem;
-            font-size: 11px;
-            letter-spacing: 0.1em;
-            line-height: 1.45;
+            margin-top: 0.7rem;
+            padding: 0;
+            font-size: 12px;
+            letter-spacing: 0.14em;
+            line-height: 1.55;
             font-weight: 700;
-            color: #6B4A32;
-            background: rgba(138, 106, 72, 0.07);
-            border: 1.5px solid #8A6A48;
+            color: #5A3E2B;
+            background: transparent;
+            border: none;
             box-sizing: border-box;
+        }
+        .transport-item .transport-note::before,
+        .transport-item .transport-note::after {
+            content: "";
+            display: block;
+            width: 4px;
+            height: 4px;
+            flex-shrink: 0;
+            transform: rotate(45deg);
+            background: #8A6A48;
+            opacity: 0.85;
         }
         .venue-floor {
             margin-top: 1rem;
@@ -1730,11 +1757,11 @@
                                     <div class="transport-options">
                                         <div class="transport-option">
                                             <span class="transport-option-num">1</span>
-                                            <p><strong>計程車</strong>｜車程約 5–10 分鐘。</p>
+                                            <p><strong>計程車</strong><span class="transport-meta">｜約 5–10 分鐘</span></p>
                                         </div>
                                         <div class="transport-option">
                                             <span class="transport-option-num">2</span>
-                                            <p><strong>快捷公車 5900</strong>｜搭乘「高鐵新竹站－竹北火車站」路線，於<strong>新竹喜來登大飯店站</strong>下車。</p>
+                                            <p><strong>快捷公車 5900</strong><span class="transport-meta">｜高鐵新竹站 → 新竹喜來登大飯店站</span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -1746,11 +1773,11 @@
                                     <div class="transport-options">
                                         <div class="transport-option">
                                             <span class="transport-option-num">1</span>
-                                            <p><strong>計程車</strong>｜車程約 10 分鐘。</p>
+                                            <p><strong>計程車</strong><span class="transport-meta">｜約 10 分鐘</span></p>
                                         </div>
                                         <div class="transport-option">
                                             <span class="transport-option-num">2</span>
-                                            <p><strong>快捷公車 5900</strong>｜於<strong>新竹喜來登大飯店站</strong>下車。</p>
+                                            <p><strong>快捷公車 5900</strong><span class="transport-meta">｜台鐵竹北站 → 新竹喜來登大飯店站</span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -1812,7 +1839,7 @@
 
             const bgMusic = document.getElementById('bgMusic');
             const muteToggle = document.getElementById('muteToggle');
-            const CHORUS_START = 41;
+            const CHORUS_START = 48;
             let isPlaying = false;
 
             bgMusic.volume = 0.45;
