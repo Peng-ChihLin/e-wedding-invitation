@@ -853,6 +853,15 @@
             font-weight: 500;
         }
 
+        .prose-wish {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 11px;
+            letter-spacing: 0.24em;
+            font-weight: 500;
+            color: #5A3E2B;
+            line-height: 1.9;
+        }
         .prose-soft {
             font-weight: 500;
             font-size: clamp(13px, 3.4vw, 14.5px);
@@ -1115,12 +1124,13 @@
             font-weight: 700;
         }
         .transport-item .transport-note {
-            display: inline-flex;
+            display: flex;
             align-items: center;
+            justify-content: center;
             gap: 0.45rem;
             width: fit-content;
             max-width: 100%;
-            margin-top: 0.7rem;
+            margin: 0.85rem 0 0 20%;
             padding: 0;
             font-size: 12px;
             letter-spacing: 0.14em;
@@ -1352,7 +1362,7 @@
 <body>
 
     <audio id="bgMusic" preload="auto">
-        <source src="./assets/wedding-bg.mp3?v=20260730" type="audio/mpeg">
+        <source src="./assets/wedding-bg.mp3?v=20260731" type="audio/mpeg">
     </audio>
 
     <main class="app-container">
@@ -1516,7 +1526,7 @@
             <div class="content-narrow prose-soft reveal delay-100">
                 <p>從同事到朋友，再成為彼此最安心的依靠</p>
                 <p>我們把日常裡的陪伴，慢慢走成一生的約定</p>
-                <p class="text-[11px] mt-6 tracking-[0.24em]" style="color: var(--text-gray); font-weight:500;">— 願此後每一天，都與彼此攜手同行 —</p>
+                <p class="prose-wish">— 願此後每一天，都與彼此攜手同行 —</p>
             </div>
         </section>
 
@@ -1805,10 +1815,10 @@
             </div>
 
             <div class="mt-14 text-center reveal pb-8">
-                <div class="invite-ornament" style="margin-bottom:1.25rem;"><span></span></div>
-                <p class="invite-text" style="font-size:13px; letter-spacing:0.16em;">
+                <p class="invite-text" style="font-size:13px; letter-spacing:0.16em; margin-bottom:1.25rem;">
                     期待與您相見
                 </p>
+                <div class="invite-ornament" style="margin-bottom:0;"><span></span></div>
                 <p class="font-cursive text-2xl text-[var(--cursive-gold)] mt-10">With love</p>
             </div>
         </section>
@@ -1839,7 +1849,7 @@
 
             const bgMusic = document.getElementById('bgMusic');
             const muteToggle = document.getElementById('muteToggle');
-            const CHORUS_START = 48;
+            const CHORUS_START = 43;
             let isPlaying = false;
 
             bgMusic.volume = 0.45;
