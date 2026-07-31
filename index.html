@@ -245,26 +245,27 @@
         }
         .hero-date .weekday {
             display: inline-block;
-            font-family: var(--font-sans);
-            font-size: 0.78em;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            margin-left: 0.34em;
-            color: var(--hero-ink-soft);
-            -webkit-text-stroke: 0;
-            text-shadow: 0 1px 6px rgba(0,0,0,0.35);
-            vertical-align: 0.05em;
-            opacity: 0.88;
+            font-family: inherit;
+            font-size: 0.82em;
+            font-weight: inherit;
+            letter-spacing: 0.22em;
+            margin-left: 0.42em;
+            color: inherit;
+            -webkit-text-stroke: inherit;
+            paint-order: stroke fill;
+            text-shadow: inherit;
+            vertical-align: 0.06em;
+            opacity: 1;
         }
         .hero-date .weekday .paren {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 500;
-            opacity: 0.7;
-            letter-spacing: 0;
+            font-family: inherit;
+            font-weight: inherit;
+            opacity: 1;
+            letter-spacing: 0.18em;
         }
         .hero-date .weekday .day {
-            letter-spacing: 0.12em;
-            padding: 0 0.1em;
+            letter-spacing: 0.22em;
+            padding: 0 0.12em;
         }
 
         .name-overlay {
@@ -833,6 +834,26 @@
             transform: rotate(45deg);
             flex-shrink: 0;
         }
+        .closing-block {
+            margin-top: 2.75rem;
+            padding: 0 0 2rem;
+            border-top: none;
+            text-align: center;
+        }
+        .closing-wish {
+            margin: 0 0 2.75rem;
+            font-weight: 500;
+            font-size: 13px;
+            letter-spacing: 0.16em;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+        .closing-block .invite-ornament {
+            margin: 0 auto 1.5rem;
+        }
+        .closing-block .closing-love {
+            margin-top: 0;
+        }
 
         .section-title {
             text-align: center;
@@ -1126,11 +1147,11 @@
         .transport-item .transport-note {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 0.45rem;
             width: fit-content;
             max-width: 100%;
-            margin: 0.85rem 0 0 20%;
+            margin: 0.85rem 0 0;
             padding: 0;
             font-size: 12px;
             letter-spacing: 0.14em;
@@ -1815,12 +1836,10 @@
                 </div>
             </div>
 
-            <div class="mt-14 text-center reveal pb-8">
-                <p class="invite-text" style="font-size:13px; letter-spacing:0.16em; margin-bottom:1.25rem;">
-                    期待與您相見
-                </p>
-                <div class="invite-ornament" style="margin-bottom:0;"><span></span></div>
-                <p class="font-cursive text-2xl text-[var(--cursive-gold)] mt-10">With love</p>
+            <div class="closing-block reveal">
+                <p class="closing-wish">期待與您相見</p>
+                <div class="invite-ornament"><span></span></div>
+                <p class="font-cursive text-2xl text-[var(--cursive-gold)] closing-love">With love</p>
             </div>
         </section>
 
