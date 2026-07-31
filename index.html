@@ -31,7 +31,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Great+Vibes&family=Inter:wght@300..800&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Great+Vibes&family=Noto+Serif+TC:wght@600&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -50,7 +50,7 @@
             --accent-ink: #1A1A1A;
             --container-max: 100%;
             --page-pad: 1.25rem;
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang TC',
+            --font-sans: -apple-system, BlinkMacSystemFont, 'PingFang TC',
                          'Microsoft JhengHei', 'Noto Sans TC', system-ui, sans-serif;
             --font-serif-zh: 'Noto Serif TC', 'Songti TC', 'STSong', serif;
         }
@@ -1361,8 +1361,9 @@
 </head>
 <body>
 
-    <audio id="bgMusic" preload="auto">
-        <source src="./assets/wedding-bg.mp3?v=20260731" type="audio/mpeg">
+    <audio id="bgMusic" preload="none">
+        <source src="./assets/wedding-bg.m4a?v=20260731b" type="audio/mp4">
+        <source src="./assets/wedding-bg.mp3?v=20260731b" type="audio/mpeg">
     </audio>
 
     <main class="app-container">
@@ -1417,7 +1418,7 @@
                     <h2 id="inviteModalTitle" class="sr-only">致霖與品蓉聯姻婚宴邀請函</h2>
                     <div class="invite-card__photos-wrap">
                         <img
-                            src="./assets/invitation-card.png"
+                            src="./assets/invitation-card.jpg"
                             alt=""
                             class="invite-card__photos"
                             width="800"
@@ -1861,12 +1862,30 @@
             };
 
             const playMusic = () => {
-                if (bgMusic.currentTime < CHORUS_START) {
-                    bgMusic.currentTime = CHORUS_START;
+                if (bgMusic.networkState === HTMLMediaElement.NETWORK_EMPTY) {
+                    bgMusic.load();
                 }
-                return bgMusic.play().then(() => {
-                    isPlaying = true;
-                    updateMusicUI();
+                const seekAndPlay = () => {
+                    try {
+                        if (bgMusic.currentTime < CHORUS_START) {
+                            bgMusic.currentTime = CHORUS_START;
+                        }
+                    } catch (_) {}
+                    return bgMusic.play().then(() => {
+                        isPlaying = true;
+                        updateMusicUI();
+                    });
+                };
+                if (bgMusic.readyState >= 1) {
+                    return seekAndPlay();
+                }
+                return new Promise((resolve, reject) => {
+                    const onReady = () => {
+                        bgMusic.removeEventListener('loadedmetadata', onReady);
+                        seekAndPlay().then(resolve).catch(reject);
+                    };
+                    bgMusic.addEventListener('loadedmetadata', onReady);
+                    bgMusic.load();
                 });
             };
 
@@ -1875,15 +1894,27 @@
                 playMusic().catch(() => {});
             };
 
-            // 進站立刻嘗試播放；若被瀏覽器自動播放政策擋下，改在第一次互動時接續播放
-            playMusic().catch(() => {
-                const events = ['pointerdown', 'touchstart', 'click', 'keydown'];
-                const once = () => {
-                    events.forEach(ev => document.removeEventListener(ev, once));
-                    unlockMusicOnGesture();
-                };
-                events.forEach(ev => document.addEventListener(ev, once, { once: true, passive: true }));
-            });
+            // 先讓畫面與圖片載入，再嘗試播放，避免新裝置被大音檔卡住
+            const startMusicWhenIdle = () => {
+                const run = () => playMusic().catch(() => {
+                    const events = ['pointerdown', 'touchstart', 'click', 'keydown'];
+                    const once = () => {
+                        events.forEach(ev => document.removeEventListener(ev, once));
+                        unlockMusicOnGesture();
+                    };
+                    events.forEach(ev => document.addEventListener(ev, once, { once: true, passive: true }));
+                });
+                if ('requestIdleCallback' in window) {
+                    requestIdleCallback(run, { timeout: 1800 });
+                } else {
+                    setTimeout(run, 900);
+                }
+            };
+            if (document.readyState === 'complete') {
+                startMusicWhenIdle();
+            } else {
+                window.addEventListener('load', startMusicWhenIdle, { once: true });
+            }
 
             bgMusic.addEventListener('ended', () => {
                 bgMusic.currentTime = CHORUS_START;
