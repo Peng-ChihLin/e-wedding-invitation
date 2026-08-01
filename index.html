@@ -1395,8 +1395,8 @@
 <body>
 
     <audio id="bgMusic" preload="none">
-        <source src="./assets/wedding-bg.m4a?v=20260731b" type="audio/mp4">
-        <source src="./assets/wedding-bg.mp3?v=20260731b" type="audio/mpeg">
+        <source src="./assets/wedding-bg.m4a?v=20260801" type="audio/mp4">
+        <source src="./assets/wedding-bg.mp3?v=20260801" type="audio/mpeg">
     </audio>
 
     <main class="app-container">
@@ -1881,7 +1881,7 @@
 
             const bgMusic = document.getElementById('bgMusic');
             const muteToggle = document.getElementById('muteToggle');
-            const CHORUS_START = 44;
+            const CHORUS_START = 45;
             let isPlaying = false;
 
             bgMusic.volume = 0.45;
@@ -1893,13 +1893,12 @@
             };
 
             const playMusic = () => {
-                if (bgMusic.networkState === HTMLMediaElement.NETWORK_EMPTY) {
-                    bgMusic.load();
-                }
                 const seekAndPlay = () => {
                     try {
-                        if (bgMusic.currentTime < CHORUS_START) {
-                            bgMusic.currentTime = CHORUS_START;
+                        if (Number.isFinite(bgMusic.duration) && bgMusic.duration > CHORUS_START) {
+                            if (bgMusic.currentTime < CHORUS_START) {
+                                bgMusic.currentTime = CHORUS_START;
+                            }
                         }
                     } catch (_) {}
                     return bgMusic.play().then(() => {
@@ -1907,16 +1906,31 @@
                         updateMusicUI();
                     });
                 };
-                if (bgMusic.readyState >= 1) {
+
+                if (bgMusic.readyState >= 2) {
                     return seekAndPlay();
                 }
+
                 return new Promise((resolve, reject) => {
-                    const onReady = () => {
+                    let settled = false;
+                    const finish = (fn, value) => {
+                        if (settled) return;
+                        settled = true;
+                        bgMusic.removeEventListener('canplay', onReady);
                         bgMusic.removeEventListener('loadedmetadata', onReady);
-                        seekAndPlay().then(resolve).catch(reject);
+                        bgMusic.removeEventListener('error', onError);
+                        fn(value);
                     };
+                    const onReady = () => {
+                        seekAndPlay().then((v) => finish(resolve, v)).catch((err) => finish(reject, err));
+                    };
+                    const onError = () => finish(reject, new Error('audio load failed'));
+                    bgMusic.addEventListener('canplay', onReady);
                     bgMusic.addEventListener('loadedmetadata', onReady);
-                    bgMusic.load();
+                    bgMusic.addEventListener('error', onError);
+                    try {
+                        bgMusic.load();
+                    } catch (_) {}
                 });
             };
 
@@ -1925,7 +1939,7 @@
                 playMusic().catch(() => {});
             };
 
-            // 先讓畫面與圖片載入，再嘗試播放，避免新裝置被大音檔卡住
+            // 先進站嘗試播放；若被瀏覽器擋下，改在第一次互動時接續播放
             const startMusicWhenIdle = () => {
                 const run = () => playMusic().catch(() => {
                     const events = ['pointerdown', 'touchstart', 'click', 'keydown'];
@@ -1936,9 +1950,9 @@
                     events.forEach(ev => document.addEventListener(ev, once, { once: true, passive: true }));
                 });
                 if ('requestIdleCallback' in window) {
-                    requestIdleCallback(run, { timeout: 1800 });
+                    requestIdleCallback(run, { timeout: 1200 });
                 } else {
-                    setTimeout(run, 900);
+                    setTimeout(run, 600);
                 }
             };
             if (document.readyState === 'complete') {
@@ -1948,7 +1962,7 @@
             }
 
             bgMusic.addEventListener('ended', () => {
-                bgMusic.currentTime = CHORUS_START;
+                try { bgMusic.currentTime = CHORUS_START; } catch (_) {}
                 bgMusic.play().then(() => {
                     isPlaying = true;
                     updateMusicUI();
