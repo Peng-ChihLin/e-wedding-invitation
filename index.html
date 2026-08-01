@@ -899,8 +899,16 @@
             font-weight: 500;
         }
 
+        .about-stack {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            /* 間格1（上文→祝福）＝ 間格2（祝福→獨照） */
+            gap: 2.5rem;
+        }
         .prose-wish {
-            margin-top: 1.5rem;
+            margin: 0;
             text-align: center;
             font-size: 11px;
             letter-spacing: 0.24em;
@@ -909,12 +917,19 @@
             line-height: 1.9;
         }
         .prose-soft {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.85em;
             font-weight: 500;
             font-size: clamp(13px, 3.4vw, 14.5px);
-            line-height: 2.55;
+            line-height: 1.9;
             letter-spacing: 0.16em;
             color: var(--text-dark);
             text-align: center;
+        }
+        .prose-soft p {
+            margin: 0;
         }
         .prose-quote {
             font-weight: 500;
@@ -1571,64 +1586,61 @@
         </section>
 
 
-        <!-- ===== ABOUT US ===== -->
-        <section class="pt-6 sm:pt-8 pb-6 section-pad flex flex-col items-center">
+        <!-- ===== ABOUT US + PORTRAIT ===== -->
+        <section class="pt-6 sm:pt-8 pb-10 sm:pb-14 section-pad flex flex-col items-center">
             <div class="section-title mb-10 reveal">
                 <h2>About Us</h2>
                 <p>關於我們</p>
                 <div class="divider-ornament mt-5"></div>
             </div>
 
-            <div class="content-narrow prose-soft reveal delay-100">
-                <p>從同事到朋友，再成為彼此最安心的依靠</p>
-                <p>我們把日常裡的陪伴，慢慢走成一生的約定</p>
-                <p class="prose-wish">— 願此後每一天，都與彼此攜手同行 —</p>
-            </div>
-        </section>
+            <div class="about-stack">
+                <div class="content-narrow prose-soft reveal delay-100">
+                    <p>從同事到朋友，再成為彼此最安心的依靠</p>
+                    <p>我們把日常裡的陪伴，慢慢走成一生的約定</p>
+                </div>
+                <p class="content-narrow prose-wish reveal delay-100">— 願此後每一天，都與彼此攜手同行 —</p>
+                <div class="couple-duo reveal">
+                    <article class="couple-card">
+                        <div class="photo-frame">
+                            <img
+                                src="./assets/R6II2036.jpg"
+                                alt="新郎彭致霖獨照"
+                                class="film-look"
+                                width="933"
+                                height="1400"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                        </div>
+                    </article>
 
+                    <article class="couple-card">
+                        <div class="photo-frame">
+                            <img
+                                src="./assets/R6II1971.jpg"
+                                alt="新娘馮品蓉獨照"
+                                class="film-look"
+                                width="933"
+                                height="1400"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                        </div>
+                    </article>
 
-        <!-- ===== NAMES + PORTRAIT ===== -->
-        <section class="py-10 sm:py-14 section-pad">
-            <div class="couple-duo reveal">
-                <article class="couple-card">
-                    <div class="photo-frame">
-                        <img
-                            src="./assets/R6II2036.jpg"
-                            alt="新郎彭致霖獨照"
-                            class="film-look"
-                            width="933"
-                            height="1400"
-                            loading="lazy"
-                            decoding="async"
-                        >
-                    </div>
-                </article>
-
-                <article class="couple-card">
-                    <div class="photo-frame">
-                        <img
-                            src="./assets/R6II1971.jpg"
-                            alt="新娘馮品蓉獨照"
-                            class="film-look"
-                            width="933"
-                            height="1400"
-                            loading="lazy"
-                            decoding="async"
-                        >
-                    </div>
-                </article>
-
-                <div class="couple-names-bar">
-                    <div class="couple-meta">
-                        <p class="couple-role">Groom</p>
-                        <p class="couple-name">彭致霖</p>
-                        <p class="couple-eng">Oscar</p>
-                    </div>
-                    <span class="couple-infinity" aria-hidden="true">∞</span>
-                    <div class="couple-meta">
-                        <p class="couple-role">Bride</p>
-                        <p class="couple-name">馮品蓉</p>
-                        <p class="couple-eng">Betty</p>
+                    <div class="couple-names-bar">
+                        <div class="couple-meta">
+                            <p class="couple-role">Groom</p>
+                            <p class="couple-name">彭致霖</p>
+                            <p class="couple-eng">Oscar</p>
+                        </div>
+                        <span class="couple-infinity" aria-hidden="true">∞</span>
+                        <div class="couple-meta">
+                            <p class="couple-role">Bride</p>
+                            <p class="couple-name">馮品蓉</p>
+                            <p class="couple-eng">Betty</p>
+                        </div>
                     </div>
                 </div>
             </div>
