@@ -835,7 +835,7 @@
             flex-shrink: 0;
         }
         .closing-block {
-            margin-top: 2.5rem;
+            margin-top: 2.75rem;
             padding: 0 var(--page-pad) 2.75rem;
             border-top: none;
             text-align: center;
@@ -843,19 +843,41 @@
             flex-direction: column;
             align-items: center;
         }
-        .closing-block .invite-ornament {
-            margin: 0 auto 2.5rem;
-            width: min(140px, 42%);
-            gap: 10px;
-        }
         .closing-wish {
-            margin: 0;
+            margin: 0 0 2.75rem;
             font-weight: 500;
             font-size: clamp(13px, 3.5vw, 15px);
             letter-spacing: 0.3em;
             text-indent: 0.3em;
             color: #5A3E2B;
             line-height: 1.8;
+        }
+        .closing-block .invite-ornament {
+            margin: 0 auto;
+            width: min(140px, 42%);
+            gap: 10px;
+        }
+
+        .quote-intro {
+            width: 100%;
+            max-width: 36rem;
+            margin: 0 auto 2.75rem;
+            padding: 0 var(--page-pad);
+            text-align: center;
+        }
+        .quote-intro .invite-ornament {
+            margin: 0 auto 2.75rem;
+            width: min(180px, 55%);
+        }
+        .quote-intro .prose-quote {
+            margin: 0;
+            line-height: 1.85;
+        }
+        .quote-intro .quote-line {
+            display: block;
+        }
+        .quote-intro .quote-line--follow {
+            margin-top: 0.7rem;
         }
 
         .section-title {
@@ -1615,11 +1637,11 @@
 
         <!-- ===== QUOTE + GALLERY ===== -->
         <section class="py-12 sm:py-16 flex flex-col items-center bg-[var(--bg-soft)]">
-            <div class="content-narrow section-pad reveal mb-10 sm:mb-12">
-                <div class="invite-ornament" style="margin-bottom:1.5rem;"><span></span></div>
+            <div class="quote-intro reveal">
+                <div class="invite-ornament" aria-hidden="true"><span></span></div>
                 <p class="prose-quote">
-                    人生只要兩次幸運就好<br>
-                    一次遇見彼此，一次是走到底
+                    <span class="quote-line">人生只要兩次幸運就好</span>
+                    <span class="quote-line quote-line--follow">一次遇見彼此，一次是走到底</span>
                 </p>
             </div>
 
@@ -1850,8 +1872,8 @@
             </div>
 
             <div class="closing-block reveal">
-                <div class="invite-ornament" aria-hidden="true"><span></span></div>
                 <p class="closing-wish">期待與您相見</p>
+                <div class="invite-ornament" aria-hidden="true"><span></span></div>
             </div>
         </section>
 
